@@ -35,7 +35,7 @@
 		81ED30F42017FB5B00A0A7EC /* VenueDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ED30F32017FB5B00A0A7EC /* VenueDetailedViewController.swift */; };
 		81ED30F62017FB7600A0A7EC /* VenueListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ED30F52017FB7600A0A7EC /* VenueListViewController.swift */; };
 		81ED30F82017FBC600A0A7EC /* SearchViewCustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ED30F72017FBC600A0A7EC /* SearchViewCustomCollectionViewCell.swift */; };
-		81EFA75F20192068006449D2 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EFA75E20192068006449D2 /* APIKeys.swift */; };
+		81FD7D02201946EF0052402A /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FD7D01201946EF0052402A /* APIKeys.swift */; };
 		87C9AE5F201821750029B6D9 /* UserFavoritesCustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C9AE5E201821750029B6D9 /* UserFavoritesCustomCollectionViewCell.swift */; };
 		9BBE0AA169BC8B68C2A4481E /* Pods_foodsquare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE4858FDDB874BA70F3A3AF9 /* Pods_foodsquare.framework */; };
 /* End PBXBuildFile section */
@@ -73,7 +73,7 @@
 		81ED30F32017FB5B00A0A7EC /* VenueDetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueDetailedViewController.swift; sourceTree = "<group>"; };
 		81ED30F52017FB7600A0A7EC /* VenueListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueListViewController.swift; sourceTree = "<group>"; };
 		81ED30F72017FBC600A0A7EC /* SearchViewCustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewCustomCollectionViewCell.swift; sourceTree = "<group>"; };
-		81EFA75E20192068006449D2 /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
+		81FD7D01201946EF0052402A /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = APIKeys.swift; path = ../../../../APIKeys.swift; sourceTree = "<group>"; };
 		87C9AE5E201821750029B6D9 /* UserFavoritesCustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFavoritesCustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		DE4858FDDB874BA70F3A3AF9 /* Pods_foodsquare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_foodsquare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -128,7 +128,7 @@
 		81ED30AE2017F44A00A0A7EC /* foodsquare */ = {
 			isa = PBXGroup;
 			children = (
-				81EFA75D20192045006449D2 /* DataToExclude */,
+				81FD7D00201946D50052402A /* DataToExclude */,
 				81ED30C62017F5A000A0A7EC /* Services */,
 				81ED30C52017F59A00A0A7EC /* Models */,
 				81ED30C42017F58B00A0A7EC /* Custom Cells */,
@@ -211,10 +211,10 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		81EFA75D20192045006449D2 /* DataToExclude */ = {
+		81FD7D00201946D50052402A /* DataToExclude */ = {
 			isa = PBXGroup;
 			children = (
-				81EFA75E20192068006449D2 /* APIKeys.swift */,
+				81FD7D01201946EF0052402A /* APIKeys.swift */,
 			);
 			path = DataToExclude;
 			sourceTree = "<group>";
@@ -351,7 +351,6 @@
 			files = (
 				81ED30D22017F76A00A0A7EC /* VenueAPIClient.swift in Sources */,
 				81ED30D82017F92200A0A7EC /* Venue.swift in Sources */,
-				81EFA75F20192068006449D2 /* APIKeys.swift in Sources */,
 				81ED30CA2017F70700A0A7EC /* ImageAPIClient.swift in Sources */,
 				81ED30E82017FA0F00A0A7EC /* VenueDetailView.swift in Sources */,
 				81ED30F82017FBC600A0A7EC /* SearchViewCustomCollectionViewCell.swift in Sources */,
@@ -364,6 +363,7 @@
 				81ED30C82017F6D400A0A7EC /* FoursquareAPISettings.swift in Sources */,
 				81ED30E22017F9C600A0A7EC /* CreateCollectionView.swift in Sources */,
 				81ED30F02017FA5C00A0A7EC /* ResultsViewController.swift in Sources */,
+				81FD7D02201946EF0052402A /* APIKeys.swift in Sources */,
 				81ED30EC2017FA4200A0A7EC /* UserFavoritesViewController.swift in Sources */,
 				81ED30CE2017F73500A0A7EC /* PhotoAPIClient.swift in Sources */,
 				87C9AE5F201821750029B6D9 /* UserFavoritesCustomCollectionViewCell.swift in Sources */,
