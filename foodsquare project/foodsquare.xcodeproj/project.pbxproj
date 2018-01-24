@@ -37,7 +37,6 @@
 		81ED30F82017FBC600A0A7EC /* SearchViewCustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ED30F72017FBC600A0A7EC /* SearchViewCustomCollectionViewCell.swift */; };
 		87C9AE5F201821750029B6D9 /* UserFavoritesCustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C9AE5E201821750029B6D9 /* UserFavoritesCustomCollectionViewCell.swift */; };
 		9BBE0AA169BC8B68C2A4481E /* Pods_foodsquare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE4858FDDB874BA70F3A3AF9 /* Pods_foodsquare.framework */; };
-		F4A68DCB2019270C0017CA79 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A68DCA2019270C0017CA79 /* APIKeys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,7 +74,7 @@
 		81ED30F72017FBC600A0A7EC /* SearchViewCustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewCustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		87C9AE5E201821750029B6D9 /* UserFavoritesCustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFavoritesCustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		DE4858FDDB874BA70F3A3AF9 /* Pods_foodsquare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_foodsquare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F4A68DCA2019270C0017CA79 /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
+		F404EC5120193CA300E3DA3B /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,7 +213,7 @@
 		F4A68DC9201926EF0017CA79 /* DataToExclude */ = {
 			isa = PBXGroup;
 			children = (
-				F4A68DCA2019270C0017CA79 /* APIKeys.swift */,
+				F404EC5120193CA300E3DA3B /* APIKeys.swift */,
 			);
 			name = DataToExclude;
 			path = "New Group";
@@ -298,11 +297,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-foodsquare/Pods-foodsquare-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -352,7 +353,6 @@
 			files = (
 				81ED30D22017F76A00A0A7EC /* VenueAPIClient.swift in Sources */,
 				81ED30D82017F92200A0A7EC /* Venue.swift in Sources */,
-				F4A68DCB2019270C0017CA79 /* APIKeys.swift in Sources */,
 				81ED30CA2017F70700A0A7EC /* ImageAPIClient.swift in Sources */,
 				81ED30E82017FA0F00A0A7EC /* VenueDetailView.swift in Sources */,
 				81ED30F82017FBC600A0A7EC /* SearchViewCustomCollectionViewCell.swift in Sources */,

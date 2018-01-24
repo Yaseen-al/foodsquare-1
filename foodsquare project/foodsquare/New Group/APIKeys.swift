@@ -1,10 +1,5 @@
 //
-//  APIKeys.swift
-//  foodsquare
-//
-//  Created by Clint Mejia on 1/24/18.
-//  Copyright © 2018 C4Q. All rights reserved.
-//
+//  APIKeys
 
 import Foundation
 
