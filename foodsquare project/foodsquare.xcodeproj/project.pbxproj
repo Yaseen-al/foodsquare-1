@@ -35,6 +35,7 @@
 		81ED30F42017FB5B00A0A7EC /* VenueDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ED30F32017FB5B00A0A7EC /* VenueDetailedViewController.swift */; };
 		81ED30F62017FB7600A0A7EC /* VenueListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ED30F52017FB7600A0A7EC /* VenueListViewController.swift */; };
 		81ED30F82017FBC600A0A7EC /* SearchViewCustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ED30F72017FBC600A0A7EC /* SearchViewCustomCollectionViewCell.swift */; };
+		87C9AE5F201821750029B6D9 /* UserFavoritesCustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C9AE5E201821750029B6D9 /* UserFavoritesCustomCollectionViewCell.swift */; };
 		9BBE0AA169BC8B68C2A4481E /* Pods_foodsquare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE4858FDDB874BA70F3A3AF9 /* Pods_foodsquare.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +72,7 @@
 		81ED30F32017FB5B00A0A7EC /* VenueDetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueDetailedViewController.swift; sourceTree = "<group>"; };
 		81ED30F52017FB7600A0A7EC /* VenueListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueListViewController.swift; sourceTree = "<group>"; };
 		81ED30F72017FBC600A0A7EC /* SearchViewCustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewCustomCollectionViewCell.swift; sourceTree = "<group>"; };
+		87C9AE5E201821750029B6D9 /* UserFavoritesCustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFavoritesCustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		DE4858FDDB874BA70F3A3AF9 /* Pods_foodsquare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_foodsquare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -124,6 +126,7 @@
 		81ED30AE2017F44A00A0A7EC /* foodsquare */ = {
 			isa = PBXGroup;
 			children = (
+				87BD609620181E7500512E9F /* DataToExclude */,
 				81ED30C62017F5A000A0A7EC /* Services */,
 				81ED30C52017F59A00A0A7EC /* Models */,
 				81ED30C42017F58B00A0A7EC /* Custom Cells */,
@@ -178,6 +181,7 @@
 				81ED30D92017F96B00A0A7EC /* SaveToFavoritesCustomCollectionViewCell.swift */,
 				81ED30DB2017F98200A0A7EC /* ResultCustomTableViewCell.swift */,
 				81ED30F72017FBC600A0A7EC /* SearchViewCustomCollectionViewCell.swift */,
+				87C9AE5E201821750029B6D9 /* UserFavoritesCustomCollectionViewCell.swift */,
 			);
 			path = "Custom Cells";
 			sourceTree = "<group>";
@@ -203,6 +207,13 @@
 				81ED30D12017F76A00A0A7EC /* VenueAPIClient.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		87BD609620181E7500512E9F /* DataToExclude */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DataToExclude;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -351,6 +362,7 @@
 				81ED30F02017FA5C00A0A7EC /* ResultsViewController.swift in Sources */,
 				81ED30EC2017FA4200A0A7EC /* UserFavoritesViewController.swift in Sources */,
 				81ED30CE2017F73500A0A7EC /* PhotoAPIClient.swift in Sources */,
+				87C9AE5F201821750029B6D9 /* UserFavoritesCustomCollectionViewCell.swift in Sources */,
 				81ED30CC2017F72700A0A7EC /* LocationService.swift in Sources */,
 				81ED30F62017FB7600A0A7EC /* VenueListViewController.swift in Sources */,
 				81ED30DE2017F9B100A0A7EC /* SaveToFavoritesView.swift in Sources */,
