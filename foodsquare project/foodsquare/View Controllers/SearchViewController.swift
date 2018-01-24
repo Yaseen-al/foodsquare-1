@@ -148,6 +148,11 @@ extension SearchViewController: UICollectionViewDelegate{
 }
 //MARK: - CollectionView Delegate
 extension SearchViewController: UISearchBarDelegate{
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchView.locationSearchBar.showsCancelButton = true
+    }
+    
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         if searchBar == self.searchView.locationSearchBar{
