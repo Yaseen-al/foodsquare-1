@@ -54,7 +54,7 @@ extension ResultsViewController: UITableViewDataSource {
         let venue = venues[indexPath.row]
         cell.configureCell(venue: venue)
         cell.venueNameLabel.text = venue.name
-        cell.categoryLabel.text = "\(venue.categories)"
+//        cell.categoryLabel.text = venue.categories[indexPath.row].name
 //        cell.venueImageView.image = venue.
         
 //        var items = [Item](){
