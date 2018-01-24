@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class ResultCustomTableViewCell: UITableViewCell {
     
@@ -15,7 +16,7 @@ class ResultCustomTableViewCell: UITableViewCell {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.backgroundColor = .gray
-        imageView.image = #imageLiteral(resourceName: "No_Image_Available")
+        imageView.image = nil
         return imageView
     }()
     
@@ -75,14 +76,13 @@ class ResultCustomTableViewCell: UITableViewCell {
     
     func setupVenueImageView() {
         addSubview(venueImageView)
-        venueImageView.translatesAutoresizingMaskIntoConstraints = false
-        // constrain image in custom cell
-        //        venueImageView.topAnchor.constraint(equalTo: topAnchor, constant: 5).isActive = true
-        venueImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5).isActive = true
-        venueImageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        //        venueImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0).isActive = true
-        venueImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.9).isActive = true
-        venueImageView.widthAnchor.constraint(equalTo: heightAnchor, multiplier: 0.9).isActive = true
+        venueImageView.snp.makeConstraints { (make) in
+            make.top.equalTo(snp.top).offset(5)
+            make.leading.equalTo(snp.leading).offset(5)
+            make.centerY.equalTo(snp.centerY)
+            make.height.equalTo(snp.height).multipliedBy(0.9)
+            make.width.equalTo(snp.height).multipliedBy(0.9)
+        }
     }
     
     func setupVenueNameLabel() {
@@ -105,10 +105,10 @@ class ResultCustomTableViewCell: UITableViewCell {
     public func configureCell(venue: Venue) {
         venueNameLabel.text = venue.name
         categoryLabel.text = "\(venue.categories)"
-        //        if let imageURL = /// IMAGE URL  {
-        //        if let image =
-        //    } else {
-        //        venueImageView.image = UIImage(#imageLiteral(resourceName: "No_Image_Available")
+//                if let imageURL =  /// IMAGE URL  {
+//                if let image =
+//            } else {
+//                venueImageView.image = UIImage(#imageLiteral(resourceName: "No_Image_Available")
     }
     
 }
