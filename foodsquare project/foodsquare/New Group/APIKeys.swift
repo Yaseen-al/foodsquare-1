@@ -1,9 +1,0 @@
-//
-//  APIKeys
-
-import Foundation
-
-struct APIKeys {
-    static let clientID = "PTRDHP0PZ0SU0J3C5J432OK5EUYX3JX1VYEUSG5HDNCASDCH"
-    static let clientSecret = "2PNS2O5XXP3C2ETCJ14ZKB4E3X5CFCQN01PYMN4USNK1QS52"
-}
