@@ -90,8 +90,8 @@ class SearchViewController: UIViewController {
         }
         // make a SearchResultsListViewController using dependency
         
-//        let searchResultsListViewController = ResultsViewController(venues: self.venues)
-//        self.navigationController?.pushViewController(searchResultsListViewController, animated: true)
+        let searchResultsListViewController = ResultsViewController(venues: self.venues)
+        self.navigationController?.pushViewController(searchResultsListViewController, animated: true)
     }
     //MARK: - Setup the searchView
     func setupSearchView(){
