@@ -41,7 +41,7 @@ class SearchView: UIView {
     
     lazy var venueSearchBar: UISearchBar = {
         let searchBar = UISearchBar()
-        searchBar.placeholder = "What's your tummy caving for today"
+        searchBar.placeholder = "What food are you craving today?"
         
         return searchBar
     }()
@@ -49,7 +49,7 @@ class SearchView: UIView {
         let searchBar = UISearchBar()
         searchBar.barTintColor = UIColor(displayP3Red: 249/255, green: 249/255, blue: 249/255, alpha: 1 )
         searchBar.searchBarStyle = UISearchBarStyle.prominent
-        searchBar.placeholder = "Your City's Goes Here"
+        searchBar.placeholder = "Your city goes here"
         return searchBar
     }()
     lazy var mapView: MKMapView = {
