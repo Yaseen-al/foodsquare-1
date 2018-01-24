@@ -83,7 +83,9 @@ extension LocationService {
                     return
                 }
                 // to get the city name use this
+
                 guard let locality = place.locality else { return }
+
                 completion(locality)
             }
         }
