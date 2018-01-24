@@ -7,3 +7,33 @@
 //
 
 import Foundation
+
+struct VenueCall: Codable{
+    var response: ResponseWrapper
+}
+
+
+struct ResponseWrapper: Codable{
+    var venues: [Venue]
+}
+
+struct Venue: Codable{
+    var id: String
+    var name: String
+    var contact: Contact
+    var location: Location
+    var categories: [Catergory]
+}
+
+struct Contact: Codable{
+    var phone: String?
+    var formattedPhone: String?
+}
+
+struct Location: Codable{
+    var formattedAddress: [String]
+}
+
+struct Catergory: Codable {
+    var name: String
+}
