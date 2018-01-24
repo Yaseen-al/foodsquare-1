@@ -15,7 +15,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        // Make a window
+        window = UIWindow(frame: UIScreen.main.bounds)
+        
+        // Initiate a tabBar controller
+        let tabBarController = UITabBarController()
+        
+        // Initiate searchViewController
+        let searchViewController = SearchViewController()
+        searchViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
+        
+        // Initiate a navigationController for the searchViewController
+        let searchNavigationController = UINavigationController(rootViewController: searchViewController)
+        
+        // Initiate a UserFavoritesNavigationController
+        let userFavorites = UserFavoritesViewController()
+        userFavorites.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
+        
+        // Initiate a navigationController for the UserFavoritesViewController
+        let UserFavoritesNavigationController = UINavigationController(rootViewController: userFavorites)
+        
+        // Add the navigationController to the tabBarController
+        tabBarController.setViewControllers([searchNavigationController, UserFavoritesNavigationController], animated: true)
+        
+        window?.rootViewController = tabBarController
+        window?.makeKeyAndVisible()
         return true
     }
 

@@ -7,29 +7,71 @@
 //
 
 import UIKit
+import SnapKit
+
+/// Connect to the Search VC > Nav Bar
 
 class ResultsViewController: UIViewController {
-
+    
+    let resultsView = ResultsView()
+    
+    var venues = [Venue]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        self.view.backgroundColor = .yellow
+        view.addSubview(resultsView)
+        
+        resultsView.resultsTableView.delegate = self
+        resultsView.resultsTableView.dataSource = self
+        
+        configureNavBar()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    private func configureNavBar() {
+        navigationItem.title = "Results List"
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
-    */
-
 }
+
+extension ResultsViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //        return venues.count
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = resultsView.resultsTableView.dequeueReusableCell(withIdentifier: "ResultCell", for: indexPath) as! ResultCustomTableViewCell
+        let venue = venues[indexPath.row]
+        cell.configureCell(venue: venue)
+        return cell
+    }
+}
+
+extension ResultsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let venue = venues[indexPath.row]
+        var cellImage: UIImage!
+        if let cell = tableView.cellForRow(at: indexPath) as? ResultCustomTableViewCell {
+            if let image = cell.venueImageView.image {
+                cellImage = image
+            } else {
+                cellImage = #imageLiteral(resourceName: "No_Image_Available")
+            }
+        }
+        /// segue to dvc
+        //        return cell
+        
+        // dependency injection to pass Venue Object to Detail VC
+        /// update below with correct name for Venue Detail VC
+        //        let detailViewController = DetailViewController()
+        //        detailViewController.modalTransitionStyle = .crossDissolve
+        //        detailViewController.modalPresentationStyle = .overCurrentContext
+        //        present(detailViewController, animated: true, completion: nil)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80.0
+    }
+}
+

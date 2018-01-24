@@ -7,15 +7,49 @@
 //
 
 import UIKit
+import SnapKit
 
 class ResultsView: UIView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    
+    // table view
+    lazy var resultsTableView: UITableView = {
+        let tv = UITableView()
+        tv.register(ResultCustomTableViewCell.self, forCellReuseIdentifier: "ResultCell")
+        //        tv.backgroundColor = .green
+        return tv
+    }()
+    
+    // setup custom view
+    
+    override init(frame: CGRect) {
+        super.init(frame: UIScreen.main.bounds)
+        commonInit()
     }
-    */
-
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonInit()
+    }
+    
+    private func commonInit() {
+        backgroundColor = .white
+        setupViews()
+    }
+    
+    private func setupViews() {
+        setupTableView()
+    }
+    
+    
+    func setupTableView() {
+        addSubview(resultsTableView)
+        // constraints
+        resultsTableView.snp.makeConstraints { (make) in
+            make.top.equalTo(safeAreaLayoutGuide.snp.top)
+            make.leading.equalTo(safeAreaLayoutGuide.snp.leading)
+            make.trailing.equalTo(safeAreaLayoutGuide.snp.trailing)
+            make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom)
+            
+        }
+    }
 }
