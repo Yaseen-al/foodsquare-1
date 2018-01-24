@@ -31,6 +31,8 @@ struct Contact: Codable {
 
 struct Location: Codable {
     var formattedAddress: [String]
+    var lat: Double
+    var lng: Double
 }
 
 struct Category: Codable {

@@ -7,3 +7,11 @@
 //
 
 import Foundation
+class Collection {
+    var venues: [Venue]
+    var title: String
+    init(venues: [Venue], title: String) {
+        self.venues = venues
+        self.title = title
+    }
+}
