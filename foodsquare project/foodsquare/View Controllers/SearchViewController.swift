@@ -20,7 +20,7 @@ class SearchViewController: UIViewController {
     }
     func configureNavBar(){
         navigationItem.largeTitleDisplayMode = .never
-        let listNavBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Menu") , style: .plain, target: self, action: #selector(listNavBarButtonItemAction))
+        let listNavBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Hamburger_icon.svg") , style: .plain, target: self, action: #selector(listNavBarButtonItemAction))
         //        let cancelNavBarButtonItem = UIBarButtonItem(title: "Cancel", style: .done, target: self, action: nil)
         navigationItem.rightBarButtonItem = listNavBarButtonItem
         //        navigationItem.rightBarButtonItem =  cancelNavBarButtonItem
