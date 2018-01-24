@@ -42,8 +42,8 @@ extension ResultsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = resultsView.resultsTableView.dequeueReusableCell(withIdentifier: "ResultCell", for: indexPath) as! ResultCustomTableViewCell
-        let venue = venues[indexPath.row]
-        cell.configureCell(venue: venue)
+//        let venue = venues[indexPath.row]
+//        cell.configureCell(venue: venue)
         return cell
     }
 }

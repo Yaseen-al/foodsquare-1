@@ -42,7 +42,6 @@ class SearchView: UIView {
     lazy var venueSearchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.placeholder = "What's your tummy caving for today"
-        searchBar.backgroundImage = UIImage()
         
         return searchBar
     }()
