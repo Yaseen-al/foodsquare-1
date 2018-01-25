@@ -52,14 +52,9 @@ class UserFavoritesViewController: UIViewController {
         navigationItem.rightBarButtonItem = refreshButton
     }
     
-    // Bar Button Segue - modal presentation
+    // Bar Button Segue
     @objc private func addNewCollectionButtonPressed() {
-        
-        // TODO: Add dependency injection
-        let createCollectionViewController = CreateCollectionViewController()
-        createCollectionViewController.modalTransitionStyle = .crossDissolve
-        createCollectionViewController.modalPresentationStyle = .overCurrentContext
-        present(createCollectionViewController, animated: true, completion: nil)
+        //TODO: add block of code for action
     }
     
     //MARK: - Constraints
@@ -88,9 +83,6 @@ extension UserFavoritesViewController: UICollectionViewDataSource {
 extension UserFavoritesViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        // TODO: ADD Dependency injection
-        let venueListViewController = VenueListViewController()
-        self.navigationController?.pushViewController(venueListViewController, animated: true)
     }
 }
 
