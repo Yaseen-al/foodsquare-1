@@ -13,7 +13,7 @@ struct PhotoAFireAPIClient {
     private init(){}
     static let manager = PhotoAFireAPIClient()
     func getPhotosForVenue(venueID: String, completionHandler: @escaping ([Item])->Void, errorHandler: @escaping (Error)->Void) {
-        let urlStr = "\(FoursquareAPISettings.basePhotoSearchURL)\(venueID)/photos?client_id=\(FoursquareAPISettings.clientID)&client_secret=\(FoursquareAPISettings.clientSecret)&v=20180117"
+        let urlStr = "\(FoursquareAPISettings.basePhotoSearchURL)\(venueID)/photos?client_id=\(FoursquareAPISettings.clientID)&client_secret=\(FoursquareAPISettings.clientSecret)&v=20180117&limit=10"
         Alamofire.request(urlStr).response(queue: DispatchQueue.main){ (response) in
             if let error = response.error{
                 errorHandler(error)
