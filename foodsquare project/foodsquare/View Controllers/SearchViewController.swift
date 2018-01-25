@@ -40,6 +40,7 @@ class SearchViewController: UIViewController {
     }
     
     let searchView = SearchView()
+
     
     //MARK: - ViewDidLoad
     override func viewDidLoad() {
@@ -50,7 +51,7 @@ class SearchViewController: UIViewController {
         //searchBar Delegate
         self.searchView.locationSearchBar.delegate = self
         self.searchView.venueSearchBar.delegate = self
-        
+        LocationService.manager.delegate = self
         setupSearchView()
         configureNavBar()
         //Getting the location authorization
@@ -65,6 +66,7 @@ class SearchViewController: UIViewController {
             LocationService.manager.getCityNameFromCLLocation(inputCLLocation: currentCLLocation, completion: {self.currentCity = $0})
             // this will move to the current location if the it is authorized
             configureMapRegion(from: currentCLLocation)
+            self.searchView.mapView.showsUserLocation = true
         }else{
             self.currentCity = "Please Enter your City"
         }
@@ -167,6 +169,8 @@ extension SearchViewController: UISearchBarDelegate{
                 self.present(alert, animated: true, completion: nil)
                 
             })
+            self.venues = []
+            self.searchView.collectionView.isHidden = true
         }
         if searchBar == self.searchView.venueSearchBar{
             guard let searchTerm = searchBar.text, searchBar.text != " " else{
@@ -189,5 +193,29 @@ extension SearchViewController: UISearchBarDelegate{
             
         }
     }
+}
+
+extension SearchViewController: LocationDelegate{
+    func userDeniedLocation() {
+        LocationService.manager.getCityCordinateFromCityName(inputCityName: "New York City", completion: { (location) in
+            self.configureMapRegion(from: location)
+            VenueAFireAPIClient.manager.getVenues(searchTerm: "Beer", location: location, completionHandler: {self.venues = $0
+            }, errorHandler: {print($0)})
+        }, errorHandler: {_ in print("error")})
+        
+    
+    }
+    
+    func userAllowedLocation(with location: CLLocation) {
+        configureMapRegion(from: location)
+        self.searchView.mapView.showsUserLocation = true
+    }
+    
+    
+    
+    
+    
+    
+
 }
 
