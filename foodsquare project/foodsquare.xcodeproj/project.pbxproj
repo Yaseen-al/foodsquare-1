@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		81285E50201A8A990056FF01 /* SecretKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81285E4F201A8A990056FF01 /* SecretKeys.swift */; };
 		81285E52201A8B6E0056FF01 /* FileManagerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81285E51201A8B6E0056FF01 /* FileManagerHelper.swift */; };
+		81285E54201A8F580056FF01 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81285E53201A8F580056FF01 /* ImageCache.swift */; };
 		81DDC51E20196A98000A0D33 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		81ED30B02017F44A00A0A7EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ED30AF2017F44A00A0A7EC /* AppDelegate.swift */; };
 		81ED30B72017F44A00A0A7EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81ED30B62017F44A00A0A7EC /* Assets.xcassets */; };
@@ -48,6 +49,7 @@
 		5E6121A4BC152988A90B17CB /* Pods-foodsquare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foodsquare.release.xcconfig"; path = "Pods/Target Support Files/Pods-foodsquare/Pods-foodsquare.release.xcconfig"; sourceTree = "<group>"; };
 		81285E4F201A8A990056FF01 /* SecretKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretKeys.swift; sourceTree = "<group>"; };
 		81285E51201A8B6E0056FF01 /* FileManagerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerHelper.swift; sourceTree = "<group>"; };
+		81285E53201A8F580056FF01 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		81ED30AC2017F44A00A0A7EC /* foodsquare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = foodsquare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81ED30AF2017F44A00A0A7EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81ED30B62017F44A00A0A7EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				81ED30CF2017F75000A0A7EC /* UserPreference.swift */,
 				81ED30D12017F76A00A0A7EC /* VenueAPIClient.swift */,
 				81285E51201A8B6E0056FF01 /* FileManagerHelper.swift */,
+				81285E53201A8F580056FF01 /* ImageCache.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 			files = (
 				81ED30D22017F76A00A0A7EC /* VenueAPIClient.swift in Sources */,
 				81ED30D82017F92200A0A7EC /* Venue.swift in Sources */,
+				81285E54201A8F580056FF01 /* ImageCache.swift in Sources */,
 				81ED30CA2017F70700A0A7EC /* ImageAPIClient.swift in Sources */,
 				81ED30E82017FA0F00A0A7EC /* VenueDetailView.swift in Sources */,
 				81ED30F82017FBC600A0A7EC /* SearchViewCustomCollectionViewCell.swift in Sources */,
