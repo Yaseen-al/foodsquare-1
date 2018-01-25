@@ -83,7 +83,15 @@ extension LocationService {
                     return
                 }
                 // to get the city name use this
+<<<<<<< HEAD
+<<<<<<< HEAD
+                guard let locality = place.locality else { return }
+=======
                 guard let locality = place.locality else {return}
+>>>>>>> dev-mag
+=======
+                guard let locality = place.locality else {return}
+>>>>>>> 8a92c4092ce6c4683ec68c297eb9834663e896a7
                 completion(locality)
             }
         }
