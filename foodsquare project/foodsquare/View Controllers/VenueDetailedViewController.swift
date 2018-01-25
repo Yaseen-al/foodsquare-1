@@ -27,7 +27,9 @@ class VenueDetailedViewController: UIViewController {
     }
     private func configureViews(){
         self.venueView.venueTypTitle.text = self.venue.categories.first?.name
-        self.venueView.tipTextView.text = self.venue.location.formattedAddress.joined(separator: " ")
+        self.venueView.tipTextView.text = self.venue.contact.formattedPhone
+        self.venueView.addressButton.setTitle(venue.location.formattedAddress.joined(separator: " "), for: UIControlState.normal)
+        self.venueView.addressButton.addTarget(self, action: #selector(addressNavigation(selector:)), for: UIControlEvents.touchUpInside)
         var items = [Item](){
             didSet{
                 print(items.count)
@@ -53,8 +55,9 @@ class VenueDetailedViewController: UIViewController {
         }
         PhotoAFireAPIClient.manager.getPhotosForVenue(venueID: venue.id
             , completionHandler: {items = $0}, errorHandler: {print($0)})
-        
-        //        ImageAFireAPIClient.manager.getImages(urlStr: self.venue.imageURL!, completionHandler: {self.venueView.venueImageView.image = $0}, errorHandler: {print($0)})
+    }
+    @objc func addressNavigation(selector: UIButton){
+        print("Dev: Navigate")
     }
     private func configureNavBar(){
         navigationItem.title = self.venue.name
