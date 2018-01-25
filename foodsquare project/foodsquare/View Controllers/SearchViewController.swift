@@ -122,8 +122,8 @@ extension SearchViewController: UICollectionViewDataSource{
                     return
                 }
                 let imageURLStr = "\(item.purplePrefix)\(item.width)\(item.height)\(item.suffix)"
-                //                self.venues[indexPath.row].imageURL = imageURLStr
-                ImageAFireAPIClient.manager.getImages(urlStr: imageURLStr, completionHandler: {cell.venueImage.image = $0; cell.setNeedsLayout()}, errorHandler: {print($0)})
+                let imageURL =  URL(string: imageURLStr)
+                cell.venueImage.kf.setImage(with: imageURL, placeholder: #imageLiteral(resourceName: "restaurant logo"), options: nil, progressBlock: nil, completionHandler: nil)
             }
         }
         PhotoAFireAPIClient.manager.getPhotosForVenue(venueID: venueSetup.id
@@ -148,11 +148,6 @@ extension SearchViewController: UICollectionViewDelegate{
 }
 //MARK: - CollectionView Delegate
 extension SearchViewController: UISearchBarDelegate{
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searchView.locationSearchBar.showsCancelButton = true
-    }
-    
-    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         if searchBar == self.searchView.locationSearchBar{

@@ -24,6 +24,16 @@ class SearchView: UIView {
         layout.minimumInteritemSpacing = cellSpacing
         layout.scrollDirection = .horizontal
         let cView = UICollectionView(frame: self.bounds, collectionViewLayout: layout)
+        
+        let gradient: CAGradientLayer = CAGradientLayer()
+        
+        gradient.colors = [UIColor(displayP3Red: 238/255, green: 242/255, blue: 245/255, alpha: 0.1 ), UIColor(displayP3Red: 238/255, green: 242/255, blue: 245/255, alpha: 1 )]
+        gradient.locations = [0.0 , 1.0]
+        gradient.startPoint = CGPoint(x: 0.0, y: 1.0)
+        gradient.endPoint = CGPoint(x: 1.0, y: 1.0)
+        gradient.frame = CGRect(x: 0.0, y: 0.0, width: cView.bounds.width, height: cView.bounds.height)
+        
+        //        cView.backgroundView?.layer.insertSublayer(gradient, at: 0)
         cView.backgroundColor = UIColor(displayP3Red: 238/255, green: 242/255, blue: 245/255, alpha: 0.8 )
         cView.register(SearchViewCustomCollectionViewCell.self, forCellWithReuseIdentifier: "customCell")
         return cView
