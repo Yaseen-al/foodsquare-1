@@ -26,7 +26,7 @@ class SaveToFavoritesViewController: UIViewController {
         self.navigationItem.title = "Add or Create Collection"
         let createButton = UIBarButtonItem(title: "Create", style: .plain, target: self, action: #selector(createButtonAction))
         // the selector in the cancel button is nil as the style is done which will make it go back to the previous view
-        let cancelButton = UIBarButtonItem(image: #imageLiteral(resourceName: "cancelButton16pt"), style: .done, target: self, action: #selector(cancelButtonAction))
+        let cancelButton = UIBarButtonItem(image: #imageLiteral(resourceName: "dismissButtonIcon"), style: .done, target: self, action: #selector(cancelButtonAction))
         self.navigationItem.rightBarButtonItem = createButton
         self.navigationItem.leftBarButtonItem = cancelButton
         
