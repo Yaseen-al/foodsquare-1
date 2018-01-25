@@ -15,7 +15,7 @@ class SearchViewController: UIViewController {
             //TODO refresh the collectionVIew and make it visible
             for venue in venues{
                 let annotation = MKPointAnnotation()
-                 annotation.coordinate = CLLocationCoordinate2DMake(venue.location.lat, venue.location.lng)
+                annotation.coordinate = CLLocationCoordinate2DMake(venue.location.lat, venue.location.lng)
                 annotation.title = venue.name
                 annotations.append(annotation)
             }
@@ -92,6 +92,7 @@ class SearchViewController: UIViewController {
         
         let searchResultsListViewController = ResultsViewController(venues: self.venues)
         self.navigationController?.pushViewController(searchResultsListViewController, animated: true)
+
     }
     //MARK: - Setup the searchView
     func setupSearchView(){
@@ -190,4 +191,3 @@ extension SearchViewController: UISearchBarDelegate{
         }
     }
 }
-

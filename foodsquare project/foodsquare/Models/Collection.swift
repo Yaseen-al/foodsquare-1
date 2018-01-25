@@ -7,11 +7,15 @@
 //
 
 import Foundation
-class Collection {
-    var venues: [Venue]
+import UIKit
+class Collection: Codable {
+    var venues: [Venue]?
     var title: String
-    init(venues: [Venue], title: String) {
+    var imageName: String
+    init(venues: [Venue]?, title: String, imageName: String) {
+        self.imageName = imageName
         self.venues = venues
         self.title = title
     }
 }
+
