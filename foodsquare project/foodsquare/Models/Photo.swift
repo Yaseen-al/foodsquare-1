@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Foundation
+
 struct AllData: Codable {
     let meta: Meta
     let response: Response
