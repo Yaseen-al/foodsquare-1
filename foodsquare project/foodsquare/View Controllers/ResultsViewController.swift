@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import Kingfisher
 
 /// Connect to the Search VC > Nav Bar
 
@@ -54,24 +55,21 @@ extension ResultsViewController: UITableViewDataSource {
         let venue = venues[indexPath.row]
         cell.configureCell(venue: venue)
         cell.venueNameLabel.text = venue.name
-//        cell.categoryLabel.text = venue.categories[indexPath.row].name
-//        cell.venueImageView.image = venue.
+        cell.categoryLabel.text = venue.categories[0].name
         
-//        var items = [Item](){
-//            didSet{
-//                print(items.count)
-//                guard let item = items.first else{
-//                    return
-//                }
-//                let imageURLStr = "\(item.purplePrefix)\(item.width)\(item.height)\(item.suffix)"
-//                //                self.venues[indexPath.row].imageURL = imageURLStr
-//                ImageAFireAPIClient.manager.getImages(urlStr: imageURLStr, completionHandler: {cell.venueImage.image = $0; cell.setNeedsLayout()}, errorHandler: {print($0)})
-//            }
-//        }
-//        PhotoAFireAPIClient.manager.getPhotosForVenue(venueID: venueSetup.id
-//            , completionHandler: {items = $0}, errorHandler: {print($0)})
-//        return cell
-        
+        var items = [Item](){
+            didSet{
+                print(items.count)
+                guard let item = items.first else{
+                    return
+                }
+                let imageURLStr = "\(item.purplePrefix)\(item.width)\(item.height)\(item.suffix)"
+                let imageURL = URL(string: imageURLStr)
+                cell.venueImageView.kf.setImage(with: imageURL, placeholder: #imageLiteral(resourceName: "restaurant logo"), options: nil, progressBlock: nil, completionHandler: nil)
+            }
+        }
+        PhotoAFireAPIClient.manager.getPhotosForVenue(venueID: venue.id
+            , completionHandler: {items = $0}, errorHandler: {print($0)})
         
         
         return cell
@@ -92,14 +90,11 @@ extension ResultsViewController: UITableViewDelegate {
             }
         }
         /// segue to dvc
-        //        return cell
+        let dvc = VenueDetailedViewController(venue: venue)
+        navigationController?.pushViewController(dvc, animated: true)
         
-        // dependency injection to pass Venue Object to Detail VC
-        /// update below with correct name for Venue Detail VC
-        //        let detailViewController = DetailViewController()
-        //        detailViewController.modalTransitionStyle = .crossDissolve
-        //        detailViewController.modalPresentationStyle = .overCurrentContext
-        //        present(detailViewController, animated: true, completion: nil)
+        
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

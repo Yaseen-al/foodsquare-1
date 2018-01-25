@@ -7,10 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-<<<<<<< HEAD
-=======
+
 		81E4926620192275001AE40E /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E4926520192275001AE40E /* APIKeys.swift */; };
->>>>>>> dev-mag
 		81ED30B02017F44A00A0A7EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ED30AF2017F44A00A0A7EC /* AppDelegate.swift */; };
 		81ED30B72017F44A00A0A7EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81ED30B62017F44A00A0A7EC /* Assets.xcassets */; };
 		81ED30BA2017F44A00A0A7EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81ED30B82017F44A00A0A7EC /* LaunchScreen.storyboard */; };
@@ -46,10 +44,7 @@
 /* Begin PBXFileReference section */
 		42A2A01FA40EE7C6BAC8DA81 /* Pods-foodsquare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foodsquare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-foodsquare/Pods-foodsquare.debug.xcconfig"; sourceTree = "<group>"; };
 		5E6121A4BC152988A90B17CB /* Pods-foodsquare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foodsquare.release.xcconfig"; path = "Pods/Target Support Files/Pods-foodsquare/Pods-foodsquare.release.xcconfig"; sourceTree = "<group>"; };
-<<<<<<< HEAD
-=======
 		81E4926520192275001AE40E /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
->>>>>>> dev-mag
 		81ED30AC2017F44A00A0A7EC /* foodsquare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = foodsquare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81ED30AF2017F44A00A0A7EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81ED30B62017F44A00A0A7EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -82,7 +77,6 @@
 		81ED30F72017FBC600A0A7EC /* SearchViewCustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewCustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		87C9AE5E201821750029B6D9 /* UserFavoritesCustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFavoritesCustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		DE4858FDDB874BA70F3A3AF9 /* Pods_foodsquare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_foodsquare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F404EC5120193CA300E3DA3B /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,8 +108,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
-=======
 		81E4926420192259001AE40E /* DataToExclude */ = {
 			isa = PBXGroup;
 			children = (
@@ -125,7 +117,6 @@
 			path = "New Group";
 			sourceTree = "<group>";
 		};
->>>>>>> dev-mag
 		81ED30A32017F44900A0A7EC = {
 			isa = PBXGroup;
 			children = (
@@ -147,11 +138,7 @@
 		81ED30AE2017F44A00A0A7EC /* foodsquare */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
-				F4A68DC9201926EF0017CA79 /* DataToExclude */,
-=======
-				81E4926420192259001AE40E /* DataToExclude */,
->>>>>>> dev-mag
+				81FD7D00201946D50052402A /* DataToExclude */,
 				81ED30C62017F5A000A0A7EC /* Services */,
 				81ED30C52017F59A00A0A7EC /* Models */,
 				81ED30C42017F58B00A0A7EC /* Custom Cells */,
@@ -234,15 +221,14 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		F4A68DC9201926EF0017CA79 /* DataToExclude */ = {
+		81FD7D00201946D50052402A /* DataToExclude */ = {
 			isa = PBXGroup;
 			children = (
-				F404EC5120193CA300E3DA3B /* APIKeys.swift */,
 			);
-			name = DataToExclude;
-			path = "New Group";
+			path = DataToExclude;
 			sourceTree = "<group>";
 		};
+
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -377,10 +363,7 @@
 			files = (
 				81ED30D22017F76A00A0A7EC /* VenueAPIClient.swift in Sources */,
 				81ED30D82017F92200A0A7EC /* Venue.swift in Sources */,
-<<<<<<< HEAD
-=======
 				81E4926620192275001AE40E /* APIKeys.swift in Sources */,
->>>>>>> dev-mag
 				81ED30CA2017F70700A0A7EC /* ImageAPIClient.swift in Sources */,
 				81ED30E82017FA0F00A0A7EC /* VenueDetailView.swift in Sources */,
 				81ED30F82017FBC600A0A7EC /* SearchViewCustomCollectionViewCell.swift in Sources */,
