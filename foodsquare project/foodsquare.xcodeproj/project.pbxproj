@@ -10,6 +10,7 @@
 		81285E50201A8A990056FF01 /* SecretKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81285E4F201A8A990056FF01 /* SecretKeys.swift */; };
 		81285E52201A8B6E0056FF01 /* FileManagerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81285E51201A8B6E0056FF01 /* FileManagerHelper.swift */; };
 		81285E54201A8F580056FF01 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81285E53201A8F580056FF01 /* ImageCache.swift */; };
+		81285E56201A93B10056FF01 /* VenueListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81285E55201A93B00056FF01 /* VenueListView.swift */; };
 		81DDC51E20196A98000A0D33 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		81ED30B02017F44A00A0A7EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ED30AF2017F44A00A0A7EC /* AppDelegate.swift */; };
 		81ED30B72017F44A00A0A7EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81ED30B62017F44A00A0A7EC /* Assets.xcassets */; };
@@ -50,6 +51,7 @@
 		81285E4F201A8A990056FF01 /* SecretKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretKeys.swift; sourceTree = "<group>"; };
 		81285E51201A8B6E0056FF01 /* FileManagerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerHelper.swift; sourceTree = "<group>"; };
 		81285E53201A8F580056FF01 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		81285E55201A93B00056FF01 /* VenueListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueListView.swift; sourceTree = "<group>"; };
 		81ED30AC2017F44A00A0A7EC /* foodsquare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = foodsquare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81ED30AF2017F44A00A0A7EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81ED30B62017F44A00A0A7EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				81ED30E32017F9DB00A0A7EC /* UserFavoritesView.swift */,
 				81ED30E52017F9E600A0A7EC /* SearchView.swift */,
 				81ED30E72017FA0F00A0A7EC /* VenueDetailView.swift */,
+				81285E55201A93B00056FF01 /* VenueListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				81DDC51E20196A98000A0D33 /* (null) in Sources */,
 				81ED30EC2017FA4200A0A7EC /* UserFavoritesViewController.swift in Sources */,
 				81ED30CE2017F73500A0A7EC /* PhotoAPIClient.swift in Sources */,
+				81285E56201A93B10056FF01 /* VenueListView.swift in Sources */,
 				87C9AE5F201821750029B6D9 /* UserFavoritesCustomCollectionViewCell.swift in Sources */,
 				81ED30CC2017F72700A0A7EC /* LocationService.swift in Sources */,
 				81ED30F62017FB7600A0A7EC /* VenueListViewController.swift in Sources */,
