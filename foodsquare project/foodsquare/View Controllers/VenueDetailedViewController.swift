@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import MapKit
 class VenueDetailedViewController: UIViewController {
     var venue: Venue
     init(venue: Venue) {
@@ -44,7 +44,7 @@ class VenueDetailedViewController: UIViewController {
                     
                 }else{
                     let imageURL =  URL(string: imageURLStr)
-                    self.venueView.venueImageView.kf.setImage(with: imageURL, placeholder: #imageLiteral(resourceName: "Store Front"), options: nil, progressBlock: nil, completionHandler: { (image, error, cache, url) in
+                    self.venueView.venueImageView.kf.setImage(with: imageURL, placeholder: #imageLiteral(resourceName: "restaurant logo"), options: nil, progressBlock: nil, completionHandler: { (image, error, cache, url) in
                         if let image = image{
                             ImageCache.manager.addImage(with: imageURLStr, and: image)
                         }
@@ -58,6 +58,16 @@ class VenueDetailedViewController: UIViewController {
     }
     @objc func addressNavigation(selector: UIButton){
         print("Dev: Navigate")
+        guard UserPreference.manager.getLongitude() != 0, UserPreference.manager.getLatitude() != 0 else {
+            return
+        }
+        let userCoordinate = CLLocationCoordinate2DMake(UserPreference.manager.getLatitude(), UserPreference.manager.getLongitude())
+        let placeCoordinate = CLLocationCoordinate2DMake(venue.location.lat, venue.location.lng)
+        
+        let directionsURLString = "http://maps.apple.com/?saddr=\(userCoordinate.latitude),\(userCoordinate.longitude)&daddr=\(placeCoordinate.latitude),\(placeCoordinate.longitude)"
+        UIApplication.shared.open(URL(string: directionsURLString)!, options: [:]) { (done) in
+            print("launched apple maps")
+        }
     }
     private func configureNavBar(){
         navigationItem.title = self.venue.name

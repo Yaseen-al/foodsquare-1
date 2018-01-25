@@ -30,7 +30,6 @@ class VenueDetailView: UIView {
     }()
     lazy var venueImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = #imageLiteral(resourceName: "Store Front")
         imageView.backgroundColor = UIColor(displayP3Red: 238/255, green: 242/255, blue: 245/255, alpha: 1 )
         return imageView
     }()
@@ -83,6 +82,4 @@ class VenueDetailView: UIView {
             constaint.width.equalTo(snp.width)
         }
     }
-    
-    
 }

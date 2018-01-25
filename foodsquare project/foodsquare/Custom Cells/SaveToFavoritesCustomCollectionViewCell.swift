@@ -22,7 +22,6 @@ class SaveToFavoritesCustomCollectionViewCell: UICollectionViewCell {
     }()
     let collectionImage: UIImageView = {
         var image = UIImageView()
-        image.backgroundColor = .orange
         return image
     }()
     override init(frame: CGRect) {
