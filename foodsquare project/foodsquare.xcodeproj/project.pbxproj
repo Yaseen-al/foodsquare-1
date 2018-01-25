@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		81E4926620192275001AE40E /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E4926520192275001AE40E /* APIKeys.swift */; };
+		81CA9055201A7EA20094A196 /* SecretKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CA9054201A7EA20094A196 /* SecretKeys.swift */; };
+		81DDC51E20196A98000A0D33 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		81ED30B02017F44A00A0A7EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ED30AF2017F44A00A0A7EC /* AppDelegate.swift */; };
 		81ED30B72017F44A00A0A7EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81ED30B62017F44A00A0A7EC /* Assets.xcassets */; };
 		81ED30BA2017F44A00A0A7EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81ED30B82017F44A00A0A7EC /* LaunchScreen.storyboard */; };
@@ -36,7 +37,6 @@
 		81ED30F42017FB5B00A0A7EC /* VenueDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ED30F32017FB5B00A0A7EC /* VenueDetailedViewController.swift */; };
 		81ED30F62017FB7600A0A7EC /* VenueListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ED30F52017FB7600A0A7EC /* VenueListViewController.swift */; };
 		81ED30F82017FBC600A0A7EC /* SearchViewCustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ED30F72017FBC600A0A7EC /* SearchViewCustomCollectionViewCell.swift */; };
-		81F88E9A201A4C4C00F90D6B /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F88E99201A4C4C00F90D6B /* APIKeys.swift */; };
 		81F88E9C201A770C00F90D6B /* StyleSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F88E9B201A770C00F90D6B /* StyleSheet.swift */; };
 		87C9AE5F201821750029B6D9 /* UserFavoritesCustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C9AE5E201821750029B6D9 /* UserFavoritesCustomCollectionViewCell.swift */; };
 		9BBE0AA169BC8B68C2A4481E /* Pods_foodsquare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE4858FDDB874BA70F3A3AF9 /* Pods_foodsquare.framework */; };
@@ -45,6 +45,7 @@
 /* Begin PBXFileReference section */
 		42A2A01FA40EE7C6BAC8DA81 /* Pods-foodsquare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foodsquare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-foodsquare/Pods-foodsquare.debug.xcconfig"; sourceTree = "<group>"; };
 		5E6121A4BC152988A90B17CB /* Pods-foodsquare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foodsquare.release.xcconfig"; path = "Pods/Target Support Files/Pods-foodsquare/Pods-foodsquare.release.xcconfig"; sourceTree = "<group>"; };
+		81CA9054201A7EA20094A196 /* SecretKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretKeys.swift; sourceTree = "<group>"; };
 		81ED30AC2017F44A00A0A7EC /* foodsquare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = foodsquare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81ED30AF2017F44A00A0A7EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81ED30B62017F44A00A0A7EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -75,7 +76,6 @@
 		81ED30F32017FB5B00A0A7EC /* VenueDetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueDetailedViewController.swift; sourceTree = "<group>"; };
 		81ED30F52017FB7600A0A7EC /* VenueListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueListViewController.swift; sourceTree = "<group>"; };
 		81ED30F72017FBC600A0A7EC /* SearchViewCustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewCustomCollectionViewCell.swift; sourceTree = "<group>"; };
-		81F88E99201A4C4C00F90D6B /* APIKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
 		81F88E9B201A770C00F90D6B /* StyleSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleSheet.swift; sourceTree = "<group>"; };
 		87C9AE5E201821750029B6D9 /* UserFavoritesCustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFavoritesCustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		DE4858FDDB874BA70F3A3AF9 /* Pods_foodsquare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_foodsquare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,6 +140,7 @@
 				81ED30C32017F58400A0A7EC /* View Controllers */,
 				81ED30C12017F45B00A0A7EC /* Supporting Files */,
 				81ED30BB2017F44A00A0A7EC /* Info.plist */,
+				81CA9054201A7EA20094A196 /* SecretKeys.swift */,
 			);
 			path = foodsquare;
 			sourceTree = "<group>";
@@ -226,7 +227,6 @@
 		81FD7D00201946D50052402A /* DataToExclude */ = {
 			isa = PBXGroup;
 			children = (
-				81F88E99201A4C4C00F90D6B /* APIKeys.swift */,
 			);
 			path = DataToExclude;
 			sourceTree = "<group>";
@@ -365,7 +365,6 @@
 			files = (
 				81ED30D22017F76A00A0A7EC /* VenueAPIClient.swift in Sources */,
 				81ED30D82017F92200A0A7EC /* Venue.swift in Sources */,
-				81F88E9A201A4C4C00F90D6B /* APIKeys.swift in Sources */,
 				81ED30CA2017F70700A0A7EC /* ImageAPIClient.swift in Sources */,
 				81ED30E82017FA0F00A0A7EC /* VenueDetailView.swift in Sources */,
 				81ED30F82017FBC600A0A7EC /* SearchViewCustomCollectionViewCell.swift in Sources */,
@@ -378,6 +377,7 @@
 				81ED30C82017F6D400A0A7EC /* FoursquareAPISettings.swift in Sources */,
 				81ED30E22017F9C600A0A7EC /* CreateCollectionView.swift in Sources */,
 				81ED30F02017FA5C00A0A7EC /* ResultsViewController.swift in Sources */,
+				81DDC51E20196A98000A0D33 /* (null) in Sources */,
 				81ED30EC2017FA4200A0A7EC /* UserFavoritesViewController.swift in Sources */,
 				81ED30CE2017F73500A0A7EC /* PhotoAPIClient.swift in Sources */,
 				87C9AE5F201821750029B6D9 /* UserFavoritesCustomCollectionViewCell.swift in Sources */,
@@ -392,6 +392,7 @@
 				81ED30EE2017FA5200A0A7EC /* SaveToFavoritesViewController.swift in Sources */,
 				81ED30E42017F9DB00A0A7EC /* UserFavoritesView.swift in Sources */,
 				81ED30F22017FB3C00A0A7EC /* CreateCollectionViewController.swift in Sources */,
+				81CA9055201A7EA20094A196 /* SecretKeys.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
