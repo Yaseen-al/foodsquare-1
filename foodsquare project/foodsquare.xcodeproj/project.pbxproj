@@ -137,11 +137,7 @@
 		81ED30AE2017F44A00A0A7EC /* foodsquare */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
-				81E4926420192259001AE40E /* DataToExclude */,
-=======
 				81FD7D00201946D50052402A /* DataToExclude */,
->>>>>>> 6c785a8ad5e90b99b257d100a60f92a13f6006bd
 				81ED30C62017F5A000A0A7EC /* Services */,
 				81ED30C52017F59A00A0A7EC /* Models */,
 				81ED30C42017F58B00A0A7EC /* Custom Cells */,
@@ -224,8 +220,6 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
-=======
 		81FD7D00201946D50052402A /* DataToExclude */ = {
 			isa = PBXGroup;
 			children = (
@@ -233,7 +227,6 @@
 			path = DataToExclude;
 			sourceTree = "<group>";
 		};
->>>>>>> 6c785a8ad5e90b99b257d100a60f92a13f6006bd
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
