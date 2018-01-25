@@ -148,3 +148,4 @@ Icon
 # Folder DataToExclude/ will be excluded. Said folder will contain API keys and dummy models
 
 DataToExclude/
+SecretKeys.swift
