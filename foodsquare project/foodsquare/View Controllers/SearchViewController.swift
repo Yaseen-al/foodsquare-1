@@ -90,8 +90,9 @@ class SearchViewController: UIViewController {
         }
         // make a SearchResultsListViewController using dependency
         
-        //        let searchResultsListViewController = ResultsViewController(venues: self.venues)
-        //        self.navigationController?.pushViewController(searchResultsListViewController, animated: true)
+        let searchResultsListViewController = ResultsViewController(venues: self.venues)
+        self.navigationController?.pushViewController(searchResultsListViewController, animated: true)
+
     }
     //MARK: - Setup the searchView
     func setupSearchView(){
@@ -122,8 +123,8 @@ extension SearchViewController: UICollectionViewDataSource{
                     return
                 }
                 let imageURLStr = "\(item.purplePrefix)\(item.width)\(item.height)\(item.suffix)"
-                //                self.venues[indexPath.row].imageURL = imageURLStr
-                ImageAFireAPIClient.manager.getImages(urlStr: imageURLStr, completionHandler: {cell.venueImage.image = $0; cell.setNeedsLayout()}, errorHandler: {print($0)})
+                let imageURL =  URL(string: imageURLStr)
+                cell.venueImage.kf.setImage(with: imageURL, placeholder: #imageLiteral(resourceName: "restaurant logo"), options: nil, progressBlock: nil, completionHandler: nil)
             }
         }
         PhotoAFireAPIClient.manager.getPhotosForVenue(venueID: venueSetup.id
