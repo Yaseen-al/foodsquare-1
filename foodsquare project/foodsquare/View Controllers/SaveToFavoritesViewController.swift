@@ -143,6 +143,12 @@ extension SaveToFavoritesViewController: UICollectionViewDelegate{
             self.present(alert, animated: true, completion: nil)
             return
         case .addedSuccessfully:
+            do{
+                guard let image = imageToSave else{return}
+                try Disk.save(image, to: .documents, as: "\(preCreatedCollection.imageName).png")
+            }catch{
+                print(error)
+            }
             let alert = UIAlertController(title: "Succesfully Added your item to your collection", message: "", preferredStyle: .alert)
             let alertAction = UIAlertAction(title: "Ok", style: .default, handler: { (handler) in
                              self.dismiss(animated: true, completion: nil)
