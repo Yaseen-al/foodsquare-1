@@ -42,7 +42,10 @@
 		81F8752F201AB95300932DF0 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F8752E201AB95300932DF0 /* APIKeys.swift */; };
 		81F88E9C201A770C00F90D6B /* StyleSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F88E9B201A770C00F90D6B /* StyleSheet.swift */; };
 		87C9AE5F201821750029B6D9 /* UserFavoritesCustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C9AE5E201821750029B6D9 /* UserFavoritesCustomCollectionViewCell.swift */; };
-		8F8F8F416EC9DC857C5531BE /* Pods_foodsquare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BC1A1028E978A8C859D5A5B /* Pods_foodsquare.framework */; };
+		9BBE0AA169BC8B68C2A4481E /* Pods_foodsquare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE4858FDDB874BA70F3A3AF9 /* Pods_foodsquare.framework */; };
+		F407B668201A81BD001D32DD /* LoadingScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F407B667201A81BD001D32DD /* LoadingScreenViewController.swift */; };
+		F407B66A201A81E9001D32DD /* LoadingScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F407B669201A81E9001D32DD /* LoadingScreenView.swift */; };
+		F455EF50201AC3DA00633F14 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = F455EF4F201AC3DA00633F14 /* APIKeys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +88,10 @@
 		81F88E9B201A770C00F90D6B /* StyleSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleSheet.swift; sourceTree = "<group>"; };
 		87C9AE5E201821750029B6D9 /* UserFavoritesCustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFavoritesCustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		C537C2581FC42BA4762FB18F /* Pods-foodsquare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foodsquare.release.xcconfig"; path = "Pods/Target Support Files/Pods-foodsquare/Pods-foodsquare.release.xcconfig"; sourceTree = "<group>"; };
+		DE4858FDDB874BA70F3A3AF9 /* Pods_foodsquare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_foodsquare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F407B667201A81BD001D32DD /* LoadingScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreenViewController.swift; sourceTree = "<group>"; };
+		F407B669201A81E9001D32DD /* LoadingScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreenView.swift; sourceTree = "<group>"; };
+		F455EF4F201AC3DA00633F14 /* APIKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,7 +137,7 @@
 		81ED30AE2017F44A00A0A7EC /* foodsquare */ = {
 			isa = PBXGroup;
 			children = (
-				81FD7D00201946D50052402A /* DataToExclude */,
+				F455EF4E201AC3DA00633F14 /* DataToExclude */,
 				81ED30C62017F5A000A0A7EC /* Services */,
 				81ED30C52017F59A00A0A7EC /* Models */,
 				81ED30C42017F58B00A0A7EC /* Custom Cells */,
@@ -161,6 +168,7 @@
 				81ED30E32017F9DB00A0A7EC /* UserFavoritesView.swift */,
 				81ED30E52017F9E600A0A7EC /* SearchView.swift */,
 				81ED30E72017FA0F00A0A7EC /* VenueDetailView.swift */,
+				F407B669201A81E9001D32DD /* LoadingScreenView.swift */,
 				81285E55201A93B00056FF01 /* VenueListView.swift */,
 			);
 			path = Views;
@@ -176,6 +184,7 @@
 				81ED30F12017FB3C00A0A7EC /* CreateCollectionViewController.swift */,
 				81ED30F32017FB5B00A0A7EC /* VenueDetailedViewController.swift */,
 				81ED30F52017FB7600A0A7EC /* VenueListViewController.swift */,
+				F407B667201A81BD001D32DD /* LoadingScreenViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -224,10 +233,11 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
-		81FD7D00201946D50052402A /* DataToExclude */ = {
+		F455EF4E201AC3DA00633F14 /* DataToExclude */ = {
 			isa = PBXGroup;
 			children = (
-				81F8752E201AB95300932DF0 /* APIKeys.swift */,
+
+				F455EF4F201AC3DA00633F14 /* APIKeys.swift */,
 			);
 			path = DataToExclude;
 			sourceTree = "<group>";
@@ -385,16 +395,19 @@
 				81285E52201A8B6E0056FF01 /* FileManagerHelper.swift in Sources */,
 				81ED30F42017FB5B00A0A7EC /* VenueDetailedViewController.swift in Sources */,
 				81ED30D02017F75000A0A7EC /* UserPreference.swift in Sources */,
+				F407B668201A81BD001D32DD /* LoadingScreenViewController.swift in Sources */,
 				81ED30D62017F91700A0A7EC /* Photo.swift in Sources */,
 				81ED30E62017F9E600A0A7EC /* SearchView.swift in Sources */,
 				81ED30C82017F6D400A0A7EC /* FoursquareAPISettings.swift in Sources */,
 				81ED30E22017F9C600A0A7EC /* CreateCollectionView.swift in Sources */,
+				F455EF50201AC3DA00633F14 /* APIKeys.swift in Sources */,
 				81ED30F02017FA5C00A0A7EC /* ResultsViewController.swift in Sources */,
 				81DDC51E20196A98000A0D33 /* (null) in Sources */,
 				81ED30EC2017FA4200A0A7EC /* UserFavoritesViewController.swift in Sources */,
 				81ED30CE2017F73500A0A7EC /* PhotoAPIClient.swift in Sources */,
 				81285E56201A93B10056FF01 /* VenueListView.swift in Sources */,
 				87C9AE5F201821750029B6D9 /* UserFavoritesCustomCollectionViewCell.swift in Sources */,
+				F407B66A201A81E9001D32DD /* LoadingScreenView.swift in Sources */,
 				81ED30CC2017F72700A0A7EC /* LocationService.swift in Sources */,
 				81ED30F62017FB7600A0A7EC /* VenueListViewController.swift in Sources */,
 				81F8752F201AB95300932DF0 /* APIKeys.swift in Sources */,
