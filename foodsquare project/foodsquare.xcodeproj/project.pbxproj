@@ -44,7 +44,6 @@
 		81ED30F82017FBC600A0A7EC /* SearchViewCustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ED30F72017FBC600A0A7EC /* SearchViewCustomCollectionViewCell.swift */; };
 		81F88E9C201A770C00F90D6B /* StyleSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F88E9B201A770C00F90D6B /* StyleSheet.swift */; };
 		87C9AE5F201821750029B6D9 /* UserFavoritesCustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C9AE5E201821750029B6D9 /* UserFavoritesCustomCollectionViewCell.swift */; };
-
 		D71CE7035AD60827D1828AF4 /* Pods_foodsquare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BC1A1028E978A8C859D5A5B /* Pods_foodsquare.framework */; };
 		F407B668201A81BD001D32DD /* LoadingScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F407B667201A81BD001D32DD /* LoadingScreenViewController.swift */; };
 		F407B66A201A81E9001D32DD /* LoadingScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F407B669201A81E9001D32DD /* LoadingScreenView.swift */; };
@@ -100,7 +99,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
 				D71CE7035AD60827D1828AF4 /* Pods_foodsquare.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -237,7 +235,6 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
-
 		DAF71C0FEB23A8F43A52DA0A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -246,11 +243,10 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-
 		F455EF4E201AC3DA00633F14 /* DataToExclude */ = {
 			isa = PBXGroup;
 			children = (
-				F455EF4F201AC3DA00633F14 /* APIKeys.swift */,
+				814EB161201AB6E400F2E433 /* SecretKeys.swift */,
 			);
 			path = DataToExclude;
 			sourceTree = "<group>";
