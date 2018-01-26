@@ -248,10 +248,6 @@ extension SearchViewController: MKMapViewDelegate{
             //Setup annotationView
             annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "PlaceAnnotationView")
             annotationView?.canShowCallout = true
-            let index = annotations.index{$0 === annotation}
-            if let annotationIndex = index {
-                let venue = venues[annotationIndex]
-            }
             annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         }else {
             annotationView?.annotation = annotation

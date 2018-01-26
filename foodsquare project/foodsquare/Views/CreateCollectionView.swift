@@ -16,7 +16,6 @@ class CreateCollectionView: UIView {
     lazy var containerView: UIView = {
         let view = UIView()
         view.layer.masksToBounds = true
-        view.layer.cornerRadius = 15
         view.backgroundColor = .white
         return view
     }()
@@ -24,7 +23,8 @@ class CreateCollectionView: UIView {
     lazy var textField: UITextField = {
         let textfield = UITextField()
         textfield.placeholder = "Enter a New Collection Title"
-        textfield.borderStyle = .line
+        textfield.backgroundColor = UIColor(displayP3Red: 238/255, green: 242/255, blue: 245/255, alpha: 1 )
+        textfield.layer.cornerRadius = 10
         textfield.textAlignment = .center
         return textfield
     }()
@@ -63,8 +63,8 @@ class CreateCollectionView: UIView {
         // snapkit constraints
         textField.snp.makeConstraints { (make) in
             make.top.equalTo(containerView.snp.top).offset(5)
-            make.width.equalTo(containerView.snp.width)
-            make.height.equalTo(containerView.snp.height).multipliedBy(0.09)
+            make.width.equalTo(containerView.snp.width).multipliedBy(0.95)
+            make.height.equalTo(containerView.snp.height).multipliedBy(0.07)
             make.centerX.equalTo(containerView.snp.centerX)
         }
     }

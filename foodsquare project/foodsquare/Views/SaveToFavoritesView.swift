@@ -12,18 +12,23 @@ class SaveToFavoritesView: UIView {
     lazy var tipLabel: UILabel = {
         let label = UILabel()
         label.text = "Leave A Tip"
-        label.backgroundColor = UIColor(displayP3Red: 238/255, green: 242/255, blue: 245/255, alpha: 1 )
+        label.font = UIFont.boldSystemFont(ofSize: 15)
         label.textAlignment = .center
         return label
     }()
     lazy var tipTextView: UITextView = {
         let textView = UITextView()
-        textView.backgroundColor = UIColor(displayP3Red: 238/255, green: 242/255, blue: 245/255, alpha: 1 )
+        textView.text = "Add a tip, e.g: Best Tacos in town"
+        textView.layer.cornerRadius = 10
+        textView.textAlignment = .center
+        textView.textColor = .gray
         return textView
     }()
     lazy var newCollectionTitleTextField: UITextField = {
         let textField = UITextField()
-        textField.backgroundColor = UIColor(displayP3Red: 238/255, green: 242/255, blue: 245/255, alpha: 1 )
+        textField.layer.cornerRadius = 10
+        textField.textAlignment = .center
+        textField.backgroundColor = .white
         textField.placeholder = " Enter new Collection Title"
         return textField
     }()
@@ -39,13 +44,15 @@ class SaveToFavoritesView: UIView {
         layout.scrollDirection = .horizontal
         layout.scrollDirection = .vertical
         let cView = UICollectionView(frame: self.bounds, collectionViewLayout: layout)
-        cView.backgroundColor = UIColor(displayP3Red: 238/255, green: 242/255, blue: 245/255, alpha: 1 )
+        cView.backgroundColor = .white
         let defaultCell = UICollectionViewCell()
+        cView.layer.cornerRadius = 10
         cView.register(SaveToFavoritesCustomCollectionViewCell.self, forCellWithReuseIdentifier: "customCell")
         return cView
     }()
     override init(frame: CGRect) {
         super.init(frame: frame)
+        backgroundColor = UIColor(displayP3Red: 238/255, green: 242/255, blue: 245/255, alpha: 1 )
         setupViews()
     }
     required init?(coder aDecoder: NSCoder) {
@@ -80,8 +87,8 @@ class SaveToFavoritesView: UIView {
         tipTextView.snp.makeConstraints { (constraint) in
             constraint.top.equalTo(tipLabel.snp.bottom).offset(10)
             constraint.centerX.equalTo(snp.centerX)
-            constraint.height.equalTo(snp.height).multipliedBy(0.45)
             constraint.width.equalTo(snp.width).multipliedBy(0.90)
+            constraint.height.equalTo(snp.height).multipliedBy(0.35)
             
         }
     }
@@ -91,7 +98,7 @@ class SaveToFavoritesView: UIView {
             constraint.top.equalTo(tipTextView.snp.bottom).offset(10)
             constraint.centerX.equalTo(snp.centerX)
             constraint.width.equalTo(snp.width).multipliedBy(0.90)
-            constraint.height.equalTo(snp.height).multipliedBy(0.45)
+            constraint.bottom.equalTo(snp.bottom)
             
         }
     }

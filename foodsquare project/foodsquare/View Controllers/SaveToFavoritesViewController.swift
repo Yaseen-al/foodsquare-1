@@ -57,7 +57,8 @@ class SaveToFavoritesViewController: UIViewController {
     
     func configureNavBar(){
         //        let navigationTitle = UINavigationItem(title: "Add or Create Collection")
-        self.navigationItem.title = "Add or Create Collection"
+        self.navigationItem.title = "Save to Collection"
+        navigationController?.navigationBar.prefersLargeTitles = true
         let createButton = UIBarButtonItem(title: "Create", style: .plain, target: self, action: #selector(createButtonAction))
         // the selector in the cancel button is nil as the style is done which will make it go back to the previous view
         let cancelButton = UIBarButtonItem(image: #imageLiteral(resourceName: "dismissButtonIcon"), style: .done, target: self, action: #selector(cancelButtonAction))
@@ -76,6 +77,13 @@ class SaveToFavoritesViewController: UIViewController {
     }
     //MARK: _ Create Button Action
     @objc func createButtonAction(){
+        guard saveToFavoriteView.newCollectionTitleTextField.text != "" else {
+            let alert = UIAlertController(title: "Please add a name for your collection", message: "", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            alert.addAction(alertAction)
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
         //TODO Check if there is a collection with the same name or no if there is a collecion with the same name present the alert View
         guard let venue = self.venue else{
             return
@@ -103,7 +111,7 @@ class SaveToFavoritesViewController: UIViewController {
     func setupsaveToFavoriteView() {
         self.view.addSubview(saveToFavoriteView)
         saveToFavoriteView.snp.makeConstraints { (constraint) in
-            constraint.edges.equalTo(self.view.safeAreaLayoutGuide)
+           constraint.edges.equalTo(self.view.safeAreaLayoutGuide)
         }
     }
 }
@@ -185,6 +193,11 @@ extension SaveToFavoritesViewController: UITextFieldDelegate{
 //MARK: - textViewDelegate
 extension SaveToFavoritesViewController: UITextViewDelegate{
     func textViewDidEndEditing(_ textView: UITextView) {
+        if (textView.text == "placeholder text here...")
+        {
+            textView.text = ""
+            textView.textColor = .black
+        }
         guard let text = textView.text else{
             return
         }
@@ -194,6 +207,24 @@ extension SaveToFavoritesViewController: UITextViewDelegate{
         }
         tips.append(text)
         self.venue.tips = tips
+    }
+    func textViewDidBeginEditing(_ textView: UITextView)
+    {
+        if (textView.text == "Add a tip, e.g: Best Tacos in town")
+        {
+            textView.text = ""
+            textView.textColor = .black
+        }
+        textView.becomeFirstResponder() //Optional
+    }
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        if (textView.text == "")
+        {
+            textView.text = "Add a tip, e.g: Best Tacos in town"
+            textView.textColor = .lightGray
+        }
+        textView.resignFirstResponder()
+        return true
     }
 }
 

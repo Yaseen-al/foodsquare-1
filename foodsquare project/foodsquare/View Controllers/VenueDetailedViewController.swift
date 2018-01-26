@@ -21,13 +21,12 @@ class VenueDetailedViewController: UIViewController {
     }
     let venueView = VenueDetailView()
     override func viewDidLoad() {
-        
         setupvenueView()
         configureNavBar()
         configureViews()
     }
     private func configureViews(){
-        self.venueView.venueTypTitle.text = self.venue.categories.first?.name
+        self.venueView.venueCategoryTitle.text = self.venue.categories.first?.name
         self.venueView.addressLabel.text = self.venue.location.formattedAddress.joined(separator: " ")
         self.venueView.tipTextView.text =  self.venue.tips?.joined(separator: "\n") ?? "My Tips:"
         self.venueView.addressButton.addTarget(self, action: #selector(addressNavigation(selector:)), for: UIControlEvents.touchUpInside)
@@ -47,7 +46,7 @@ class VenueDetailedViewController: UIViewController {
                 }else{
                     let imageURL =  URL(string: imageURLStr)
         
-                    self.venueView.venueImageView.kf.setImage(with: imageURL, placeholder: #imageLiteral(resourceName: "restaurant logo"), options: nil, progressBlock: nil, completionHandler: { (image, error, cache, url) in
+                    self.venueView.venueImageView.kf.setImage(with: imageURL, placeholder: nil, options: nil, progressBlock: nil, completionHandler: { (image, error, cache, url) in
                         if let image = image{
                             ImageCache.manager.addImage(with: imageURLStr, and: image)
                             self.imageToSave = image
