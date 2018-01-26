@@ -12,6 +12,7 @@
 		81285E52201A8B6E0056FF01 /* FileManagerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81285E51201A8B6E0056FF01 /* FileManagerHelper.swift */; };
 		81285E54201A8F580056FF01 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81285E53201A8F580056FF01 /* ImageCache.swift */; };
 		81285E56201A93B10056FF01 /* VenueListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81285E55201A93B00056FF01 /* VenueListView.swift */; };
+
 		81285E7E201ADF4E0056FF01 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81285E7D201ADF4E0056FF01 /* APIKeys.swift */; };
 		81DDC51E20196A98000A0D33 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		81ED30B02017F44A00A0A7EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ED30AF2017F44A00A0A7EC /* AppDelegate.swift */; };
@@ -44,6 +45,8 @@
 		81ED30F82017FBC600A0A7EC /* SearchViewCustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ED30F72017FBC600A0A7EC /* SearchViewCustomCollectionViewCell.swift */; };
 		81F88E9C201A770C00F90D6B /* StyleSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F88E9B201A770C00F90D6B /* StyleSheet.swift */; };
 		87C9AE5F201821750029B6D9 /* UserFavoritesCustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C9AE5E201821750029B6D9 /* UserFavoritesCustomCollectionViewCell.swift */; };
+
+		D71CE7035AD60827D1828AF4 /* Pods_foodsquare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BC1A1028E978A8C859D5A5B /* Pods_foodsquare.framework */; };
 		F407B668201A81BD001D32DD /* LoadingScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F407B667201A81BD001D32DD /* LoadingScreenViewController.swift */; };
 		F407B66A201A81E9001D32DD /* LoadingScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F407B669201A81E9001D32DD /* LoadingScreenView.swift */; };
 /* End PBXBuildFile section */
@@ -98,8 +101,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67E89FE11F2EB4640E580605 /* Pods_foodsquare.framework in Frameworks */,
-				53018802199270A7F6264782 /* Pods_foodsquare.framework in Frameworks */,
+
+				D71CE7035AD60827D1828AF4 /* Pods_foodsquare.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,19 +238,22 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
-		DAF71C0FEB23A8F43A52DA0A /* DataToExclude */ = {
+
+		DAF71C0FEB23A8F43A52DA0A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-			);
-			path = DataToExclude;
-			sourceTree = "<group>";
-		};
-		E60C912AEA91619C67D0D096 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				416C0A8ACC4083D9F1613F1C /* Pods_foodsquare.framework */,
+				2BC1A1028E978A8C859D5A5B /* Pods_foodsquare.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+
+		F455EF4E201AC3DA00633F14 /* DataToExclude */ = {
+			isa = PBXGroup;
+			children = (
+				F455EF4F201AC3DA00633F14 /* APIKeys.swift */,
+			);
+			path = DataToExclude;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -328,6 +334,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-foodsquare/Pods-foodsquare-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Disk/Disk.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/TableFlip/TableFlip.framework",
@@ -335,6 +342,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Disk.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TableFlip.framework",
@@ -402,7 +410,7 @@
 				81ED30E22017F9C600A0A7EC /* CreateCollectionView.swift in Sources */,
 				81285E7E201ADF4E0056FF01 /* APIKeys.swift in Sources */,
 				81ED30F02017FA5C00A0A7EC /* ResultsViewController.swift in Sources */,
-				81DDC51E20196A98000A0D33 /* (null) in Sources */,
+				81DDC51E20196A98000A0D33 /* BuildFile in Sources */,
 				81ED30EC2017FA4200A0A7EC /* UserFavoritesViewController.swift in Sources */,
 				81ED30CE2017F73500A0A7EC /* PhotoAPIClient.swift in Sources */,
 				81285E56201A93B10056FF01 /* VenueListView.swift in Sources */,

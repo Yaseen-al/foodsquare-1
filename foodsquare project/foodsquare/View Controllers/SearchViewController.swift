@@ -164,7 +164,9 @@ extension SearchViewController: UICollectionViewDelegate{
             return
         }
         let venueSetup = venues[indexPath.row]
+
         recenterMapRegion(from: CLLocation(latitude: venueSetup.location.lat, longitude: venueSetup.location.lng))
+
     }
     
 }
