@@ -19,7 +19,6 @@ class FileManagerHelper {
     private var savedCollection = [Collection(venues: nil, title: "Tasty on the Budget", imageName: "restaurant logo")] {
         didSet {
             saveCollections()
-            
         }
     }
     //This function takes a venue and a collection title and if the venue doesn't exist in a certain collection or if the collection venues is empty it will add the venue other wise it will skip it if it is already existing in the collecion Venues

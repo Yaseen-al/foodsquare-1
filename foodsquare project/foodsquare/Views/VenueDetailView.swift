@@ -9,10 +9,17 @@
 import UIKit
 
 class VenueDetailView: UIView {
+    lazy var addressButton: UIButton = {
+        let button = UIButton()
+        button.setTitleColor(UIColor.blue, for: .normal)
+        button.setTitleColor(UIColor.gray, for: .selected)
+        return button
+    }()
     lazy var venueTypTitle: UILabel = {
         let label = UILabel()
+        label.numberOfLines = 2
         label.text = "Sushi Resturant"
-        label.backgroundColor = UIColor(displayP3Red: 240/255, green: 150/255, blue: 245/255, alpha: 1 )
+        label.backgroundColor = UIColor(displayP3Red: 238/255, green: 242/255, blue: 245/255, alpha: 1 )
         return label
     }()
     lazy var tipTextView: UITextView = {
@@ -23,14 +30,13 @@ class VenueDetailView: UIView {
     }()
     lazy var venueImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = nil
         imageView.backgroundColor = UIColor(displayP3Red: 238/255, green: 242/255, blue: 245/255, alpha: 1 )
-        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        backgroundColor = UIColor(displayP3Red: 238/255, green: 242/255, blue: 245/255, alpha: 1 )
         setupViews()
     }
     required init?(coder aDecoder: NSCoder) {
@@ -40,6 +46,7 @@ class VenueDetailView: UIView {
         setupvenueImageView()
         setupVenueTypeTitle()
         setupTipTextView()
+        setupAddressButton()
     }
     func setupvenueImageView(){
         addSubview(venueImageView)
@@ -64,10 +71,15 @@ class VenueDetailView: UIView {
         tipTextView.snp.makeConstraints { (constraint) in
             constraint.top.equalTo(venueTypTitle.snp.bottom)
             constraint.width.equalTo(snp.width)
-            constraint.height.equalTo(snp.height).multipliedBy(0.45)
+            constraint.height.equalTo(snp.height).multipliedBy(0.20)
         }
     }
-    
-    
+    func setupAddressButton(){
+        addSubview(addressButton)
+        addressButton.snp.makeConstraints { (constaint) in
+            constaint.top.equalTo(tipTextView.snp.bottom).offset(5)
+            constaint.centerX.equalTo(snp.centerX)
+            constaint.width.equalTo(snp.width)
+        }
+    }
 }
-

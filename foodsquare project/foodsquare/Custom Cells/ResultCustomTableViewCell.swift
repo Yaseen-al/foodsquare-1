@@ -26,6 +26,7 @@ class ResultCustomTableViewCell: UITableViewCell {
         let label = UILabel()
         label.text = "Venue Name"
         label.textAlignment = .left
+        label.numberOfLines = 2
         //        label.backgroundColor = .green
         label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         return label
@@ -87,18 +88,20 @@ class ResultCustomTableViewCell: UITableViewCell {
     
     func setupVenueNameLabel() {
         addSubview(venueNameLabel)
-        venueNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        // constrain venue name in custom cell
-        venueNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 5).isActive = true
-        venueNameLabel.leadingAnchor.constraint(equalTo: venueImageView.trailingAnchor, constant: 5).isActive = true
+        venueNameLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(snp.top).offset(5)
+            make.leading.equalTo(venueImageView.snp.trailing).offset(5)
+            make.trailing.equalTo(snp.trailing).offset(-5)
+        }
+        
     }
     
     func setupCategoryLabel() {
         addSubview(categoryLabel)
-        categoryLabel.translatesAutoresizingMaskIntoConstraints = false
-        // constrain category label in custom cell
-        categoryLabel.topAnchor.constraint(equalTo: venueNameLabel.bottomAnchor, constant: 5).isActive = true
-        categoryLabel.leadingAnchor.constraint(equalTo: venueImageView.trailingAnchor, constant: 5).isActive = true
+        categoryLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(venueNameLabel.snp.bottom).offset(5)
+            make.leading.equalTo(venueImageView.snp.trailing).offset(5)
+        }
     }
     
     

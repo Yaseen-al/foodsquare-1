@@ -7,12 +7,9 @@
 //
 
 import UIKit
-
+import MapKit
 class VenueDetailedViewController: UIViewController {
-    var venue: Venue{
-        didSet{
-        }
-    }
+    var venue: Venue
     init(venue: Venue) {
         self.venue = venue
         super.init(nibName: nil, bundle: nil)
@@ -23,47 +20,71 @@ class VenueDetailedViewController: UIViewController {
     }
     let venueView = VenueDetailView()
     override func viewDidLoad() {
-        view.backgroundColor = .white
+        
         setupvenueView()
         configureNavBar()
         configureViews()
     }
     private func configureViews(){
         self.venueView.venueTypTitle.text = self.venue.categories.first?.name
-        self.venueView.tipTextView.text = self.venue.location.formattedAddress.joined(separator: " ")
-        
-//                ImageAFireAPIClient.manager.getImages(urlStr: self.venue.imageURL!, completionHandler: {self.venueView.venueImageView.image = $0}, errorHandler: {print($0)})
-        
+        self.venueView.tipTextView.text = self.venue.contact.formattedPhone
+        self.venueView.addressButton.setTitle(venue.location.formattedAddress.joined(separator: " "), for: UIControlState.normal)
+        self.venueView.addressButton.addTarget(self, action: #selector(addressNavigation(selector:)), for: UIControlEvents.touchUpInside)
         var items = [Item](){
             didSet{
                 print(items.count)
                 guard let item = items.first else{
                     return
                 }
+                
                 let imageURLStr = "\(item.purplePrefix)\(item.width)\(item.height)\(item.suffix)"
-                let imageURL = URL(string: imageURLStr)
-                self.venueView.venueImageView.kf.setImage(with: imageURL, placeholder: #imageLiteral(resourceName: "restaurant logo"), options: nil, progressBlock: nil, completionHandler: nil)
+                if let image = ImageCache.manager.getImage(with: imageURLStr){
+                    
+                    self.venueView.venueImageView.image = image
+                    
+                }else{
+                    let imageURL =  URL(string: imageURLStr)
+                    self.venueView.venueImageView.kf.setImage(with: imageURL, placeholder: #imageLiteral(resourceName: "restaurant logo"), options: nil, progressBlock: nil, completionHandler: { (image, error, cache, url) in
+                        if let image = image{
+                            ImageCache.manager.addImage(with: imageURLStr, and: image)
+                        }
+                    })
+                    
+                }
             }
         }
         PhotoAFireAPIClient.manager.getPhotosForVenue(venueID: venue.id
             , completionHandler: {items = $0}, errorHandler: {print($0)})
+    }
+    @objc func addressNavigation(selector: UIButton){
+        print("Dev: Navigate")
+        guard UserPreference.manager.getLongitude() != 0, UserPreference.manager.getLatitude() != 0 else {
+            return
+        }
+        let userCoordinate = CLLocationCoordinate2DMake(UserPreference.manager.getLatitude(), UserPreference.manager.getLongitude())
+        let placeCoordinate = CLLocationCoordinate2DMake(venue.location.lat, venue.location.lng)
         
-        
+        let directionsURLString = "http://maps.apple.com/?saddr=\(userCoordinate.latitude),\(userCoordinate.longitude)&daddr=\(placeCoordinate.latitude),\(placeCoordinate.longitude)"
+        UIApplication.shared.open(URL(string: directionsURLString)!, options: [:]) { (done) in
+            print("launched apple maps")
+        }
     }
     private func configureNavBar(){
         navigationItem.title = self.venue.name
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .always
-        let addNavButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNavButtonAction))
+        let addNavButton = UIBarButtonItem(image: #imageLiteral(resourceName: "add-anchor-point"), style: .done, target: self, action: #selector(addNavButtonAction))
         navigationItem.rightBarButtonItem = addNavButton
     }
     
     //MARK: - addNavButton Action
     @objc func addNavButtonAction(){
         //TODO Add the venue to a collection buy going to the addToCollection view controller
-        let saveVenueToFavoritesViewController = SaveToFavoritesViewController()
-        let saveVenueToFavoritesNavController = UINavigationController(rootViewController: saveVenueToFavoritesViewController)
-        present(saveVenueToFavoritesNavController, animated: true, completion: nil)
+        let preCreatedCollection = Collection(venues: nil, title: "American Food", imageName: "burger Image")
+        
+        let saveVenueToFavoritesViewController = SaveToFavoritesViewController(venue: self.venue, precreatedCollection: preCreatedCollection)
+        let SaveVenueToFavoritesNavController = UINavigationController(rootViewController: saveVenueToFavoritesViewController)
+        present(SaveVenueToFavoritesNavController, animated: true, completion: nil)
     }
     func setupvenueView(){
         view.addSubview(venueView)
@@ -72,4 +93,3 @@ class VenueDetailedViewController: UIViewController {
         }
     }
 }
-

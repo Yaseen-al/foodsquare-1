@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 import MapKit
 class SearchViewController: UIViewController {
+    var currentSelectedVenue: Venue!
     private var annotations = [MKAnnotation]()
     var venues = [Venue](){
         didSet{
@@ -40,6 +41,7 @@ class SearchViewController: UIViewController {
     }
     
     let searchView = SearchView()
+
     
     //MARK: - ViewDidLoad
     override func viewDidLoad() {
@@ -50,12 +52,13 @@ class SearchViewController: UIViewController {
         //searchBar Delegate
         self.searchView.locationSearchBar.delegate = self
         self.searchView.venueSearchBar.delegate = self
-        
+        LocationService.manager.delegate = self
         setupSearchView()
         configureNavBar()
         //Getting the location authorization
         let authorizationStatus = LocationService.manager.checkForLocationServices()
         authorizationHandling(inputAuthization: authorizationStatus)
+        self.searchView.mapView.delegate = self
     }
     
     // This function gets the city name based on the user authorization and the stored UserPreference
@@ -65,6 +68,7 @@ class SearchViewController: UIViewController {
             LocationService.manager.getCityNameFromCLLocation(inputCLLocation: currentCLLocation, completion: {self.currentCity = $0})
             // this will move to the current location if the it is authorized
             configureMapRegion(from: currentCLLocation)
+            self.searchView.mapView.showsUserLocation = true
         }else{
             self.currentCity = "Please Enter your City"
         }
@@ -168,6 +172,7 @@ extension SearchViewController: UISearchBarDelegate{
                 self.present(alert, animated: true, completion: nil)
                 
             })
+            self.searchView.collectionView.isHidden = true
         }
         if searchBar == self.searchView.venueSearchBar{
             guard let searchTerm = searchBar.text, searchBar.text != " " else{
@@ -191,3 +196,59 @@ extension SearchViewController: UISearchBarDelegate{
         }
     }
 }
+
+
+extension SearchViewController: LocationDelegate{
+    func userDeniedLocation() {
+        LocationService.manager.getCityCordinateFromCityName(inputCityName: "New York City", completion: { (location) in
+            self.configureMapRegion(from: location)
+            VenueAFireAPIClient.manager.getVenues(searchTerm: "Beer", location: location, completionHandler: {self.venues = $0
+            }, errorHandler: {print($0)})
+        }, errorHandler: {_ in print("error")})
+        
+    
+    }
+    
+    func userAllowedLocation(with location: CLLocation) {
+        configureMapRegion(from: location)
+        self.searchView.mapView.showsUserLocation = true
+    }
+}
+
+
+//MARK: - SearchViewController MKMapViewDelegate
+extension SearchViewController: MKMapViewDelegate{
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            return nil
+        }
+        var annotationView = self.searchView.mapView.dequeueReusableAnnotationView(withIdentifier: "PlaceAnnotationView") as? MKMarkerAnnotationView
+        if annotationView == nil{
+            //Setup annotationView
+            annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "PlaceAnnotationView")
+            annotationView?.canShowCallout = true
+            let index = annotations.index{$0 === annotation}
+            if let annotationIndex = index {
+                let venue = venues[annotationIndex]
+                annotationView?.glyphText = venue.name
+            }
+            annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+        }else {
+            annotationView?.annotation = annotation
+        }
+        return annotationView
+    }
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        // find place selected
+        
+        let index = annotations.index{$0 === view.annotation}
+        guard let annotationIndex = index else { print("index is nil"); return }
+        let venue = venues[annotationIndex]
+        currentSelectedVenue = venue
+    }
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        let detailVC = VenueDetailedViewController(venue: currentSelectedVenue)
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
+}
+
