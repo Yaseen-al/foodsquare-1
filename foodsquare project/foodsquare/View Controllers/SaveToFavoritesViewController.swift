@@ -7,16 +7,19 @@
 //
 
 import UIKit
+import Disk
 
 class SaveToFavoritesViewController: UIViewController {
     var favoriteCollections:[Collection]!
     var preCreatedCollection: Collection!
     var venue: Venue!
+    var imageToSave: UIImage!
     private let collectionImagesInAssets = ["salmon dish", "burger Image"]
-    init(venue: Venue, precreatedCollection: Collection) {
+    init(venue: Venue, precreatedCollection: Collection, image: UIImage) {
         super.init(nibName: nil, bundle: nil)
         self.preCreatedCollection = precreatedCollection
         self.venue = venue
+        self.imageToSave = image
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -26,9 +29,20 @@ class SaveToFavoritesViewController: UIViewController {
     //collectionViewCell cell spacing
     let cellSpacing: CGFloat = 10
     
+    
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        self.saveToFavoriteView.newCollectionTitleTextField.endEditing(true)
+        self.saveToFavoriteView.tipTextView.endEditing(true)
+       
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tap)
         //configuring the navigation bar
         setupsaveToFavoriteView()
         configureNavBar()
@@ -65,6 +79,12 @@ class SaveToFavoritesViewController: UIViewController {
         }
         preCreatedCollection.venues = [venue]
         
+        do{
+            guard let image = imageToSave else{return}
+            try Disk.save(image, to: .documents, as: "\(preCreatedCollection.imageName).png")
+        }catch{
+            print(error)
+        }
         FileManagerHelper.manager.addNew(newCollection: self.preCreatedCollection)
         print("DEV: create collection is pressed")
         let alert = UIAlertController(title: "You have a new collection now, hit the road with some venue search", message: "", preferredStyle: .alert)
@@ -96,7 +116,13 @@ extension SaveToFavoritesViewController:  UICollectionViewDataSource{
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "customCell", for: indexPath) as! SaveToFavoritesCustomCollectionViewCell
         let collectionSetup = favoriteCollections[indexPath.row]
         cell.collectionLabel.text = collectionSetup.title
-        cell.collectionImage.image = UIImage(named: collectionSetup.imageName)
+        do{
+        let retrievedImage = try Disk.retrieve("\(collectionSetup.imageName).png", from: .documents, as: UIImage.self)
+            cell.collectionImage.image = retrievedImage
+        }catch{
+            print(error)
+        }
+        
         return cell
     }
     

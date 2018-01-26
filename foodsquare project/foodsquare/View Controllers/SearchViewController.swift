@@ -156,6 +156,7 @@ extension SearchViewController: UICollectionViewDelegate{
             return
         }
         let venueSetup = venues[indexPath.row]
+        
         let detailedController = VenueDetailedViewController(venue: venueSetup)
         self.navigationController?.pushViewController(detailedController, animated: true)
         
