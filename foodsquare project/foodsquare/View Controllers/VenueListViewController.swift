@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TableFlip
 
 class VenueListViewController: UIViewController {
     var venues:[Venue]!
@@ -29,6 +30,17 @@ class VenueListViewController: UIViewController {
         self.venueListView.tableView.dataSource = self
         self.venueListView.tableView.delegate = self
     }
+    
+    override func viewWillLayoutSubviews() {
+        animateTableView()
+    }
+    
+    private func animateTableView() {
+        self.venueListView.tableView.animate(animation: TableViewAnimation.Cell.fade(duration: 1.0))
+    }
+    
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -64,7 +76,6 @@ extension VenueListViewController: UITableViewDataSource{
         }
         cell.venueNameLabel.text = venueSetup.name
         cell.categoryLabel.text = venueSetup.categories.first?.name
-        cell.venueImageView.image = #imageLiteral(resourceName: "restaurant logo")
         var items = [Item](){
             didSet{
                 print(items.count)
@@ -79,7 +90,8 @@ extension VenueListViewController: UITableViewDataSource{
                     
                 }else{
                     let imageURL =  URL(string: imageURLStr)
-                     cell.venueImageView.kf.setImage(with: imageURL, placeholder: #imageLiteral(resourceName: "restaurant logo"), options: nil, progressBlock: nil, completionHandler: { (image, error, cache, url) in
+                    cell.venueImageView.kf.indicatorType = .activity
+                     cell.venueImageView.kf.setImage(with: imageURL, placeholder: nil, options: nil, progressBlock: nil, completionHandler: { (image, error, cache, url) in
                         if let image = image{
                             ImageCache.manager.addImage(with: imageURLStr, and: image)
                         }

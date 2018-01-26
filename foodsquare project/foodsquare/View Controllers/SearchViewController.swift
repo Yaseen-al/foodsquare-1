@@ -48,6 +48,12 @@ class SearchViewController: UIViewController {
         self.searchView.venueSearchBar.endEditing(true)
     }
     
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.prefersLargeTitles = false
+    }
+    
     //MARK: - ViewDidLoad
     override func viewDidLoad() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
@@ -98,15 +104,27 @@ class SearchViewController: UIViewController {
     
     //MARK: - Configure the nav Bar
     func configureNavBar(){
-        navigationItem.largeTitleDisplayMode = .never
+        navigationController?.navigationBar.prefersLargeTitles = false
         let listNavBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Menu"), style: .plain, target: self, action: #selector(listNavBarButtonItemAction))
         navigationItem.rightBarButtonItem = listNavBarButtonItem
         navigationItem.titleView = searchView.venueSearchBar
+        let backItem = UIBarButtonItem()
+        backItem.title = "Search"
+        self.navigationItem.backBarButtonItem = backItem
     }
     
     @objc func listNavBarButtonItemAction(){
         // guard to make sure that you have venues result else return
         guard !self.venues.isEmpty else {
+            
+            let alert = UIAlertController(title: "Please search for a venue", message: nil, preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "Ok", style: .default, handler: { (handler) in
+                alert.dismiss(animated: true, completion: nil)
+            })
+            alert.addAction(alertAction)
+            self.present(alert, animated: true, completion: nil)
+            
+            
             return
         }
         // make a SearchResultsListViewController using dependency

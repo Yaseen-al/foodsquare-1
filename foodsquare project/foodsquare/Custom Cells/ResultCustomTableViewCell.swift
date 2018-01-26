@@ -15,7 +15,6 @@ class ResultCustomTableViewCell: UITableViewCell {
     lazy var venueImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
-        imageView.backgroundColor = .gray
         imageView.image = nil
         return imageView
     }()
