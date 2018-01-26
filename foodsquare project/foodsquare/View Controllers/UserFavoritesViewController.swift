@@ -33,6 +33,12 @@ class UserFavoritesViewController: UIViewController {
         commonInit()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+//        self.userFavoritesView.userFavoritesCollectionView.reloadData()
+        FileManagerHelper.manager.loadCollections()
+        self.favorites = FileManagerHelper.manager.getAllCollections()
+    }
+    
     //MARK: - Functions
     private func commonInit() {
         self.view.backgroundColor = .white
@@ -58,17 +64,14 @@ class UserFavoritesViewController: UIViewController {
     private func configureNavigationBar() {
         navigationItem.title = "My Favorites"
         navigationController?.navigationBar.prefersLargeTitles = true
-        let refreshButton =  UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(addNewCollectionButtonPressed))
+        let refreshButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(addNewCollectionButtonPressed))
         navigationItem.rightBarButtonItem = refreshButton
     }
     
     // Bar Button Segue
     @objc private func addNewCollectionButtonPressed() {
         let createCollectionViewController = CreateCollectionViewController()
-        createCollectionViewController.modalTransitionStyle = .crossDissolve
-        createCollectionViewController.modalPresentationStyle = .overCurrentContext
-        present(createCollectionViewController, animated: true, completion: nil)
-        
+        self.navigationController?.pushViewController(createCollectionViewController, animated: true)
     }
     
     
