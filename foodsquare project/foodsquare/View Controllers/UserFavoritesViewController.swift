@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import Disk
 
 class UserFavoritesViewController: UIViewController {
     
@@ -94,8 +95,13 @@ extension UserFavoritesViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! UserFavoritesCustomCollectionViewCell
         let favorite = favorites[indexPath.row]
-        let favoriteImage = UIImage(named: favorite.imageName) ?? #imageLiteral(resourceName: "No_Image_Available")
-        cell.configureCell(with: favorite.title, and: favoriteImage)
+        var retrievedImage: UIImage? = nil
+        do{
+          retrievedImage = try Disk.retrieve("\(favorite.imageName).png", from: .documents, as: UIImage.self)
+        }catch{
+            print(error)
+        }
+        cell.configureCell(with: favorite.title, and: retrievedImage ?? #imageLiteral(resourceName: "No_Image_Available"))
         return cell
     }
 }

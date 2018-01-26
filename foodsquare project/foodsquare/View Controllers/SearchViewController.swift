@@ -251,7 +251,6 @@ extension SearchViewController: MKMapViewDelegate{
             let index = annotations.index{$0 === annotation}
             if let annotationIndex = index {
                 let venue = venues[annotationIndex]
-                annotationView?.glyphText = venue.name
             }
             annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         }else {
