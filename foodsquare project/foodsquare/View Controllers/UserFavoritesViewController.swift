@@ -65,9 +65,13 @@ class UserFavoritesViewController: UIViewController {
     // Bar Button Segue
     @objc private func addNewCollectionButtonPressed() {
         let createCollectionViewController = CreateCollectionViewController()
-        self.navigationController?.pushViewController(createCollectionViewController, animated: true)
+        createCollectionViewController.modalTransitionStyle = .crossDissolve
+        createCollectionViewController.modalPresentationStyle = .overCurrentContext
+        present(createCollectionViewController, animated: true, completion: nil)
         
     }
+    
+    
     
     //MARK: - Constraints
     private func setupUserFavoritesView() {

@@ -21,15 +21,15 @@ class CreateCollectionViewController: UIViewController {
         self.view.backgroundColor = .white
         self.view.addSubview(createCollectionView)
         createCollectionView.textField.delegate = self
-        configureNavBar()
+//        configureNavBar()
     }
     
-    private func configureNavBar() {
-        navigationItem.title = "Create Collection"
-        navigationController?.navigationBar.prefersLargeTitles = true
-        let createBarItem = UIBarButtonItem(title: "Create", style: .plain, target: self, action: #selector(createCollection))
-        navigationItem.rightBarButtonItem = createBarItem
-    }
+//    private func configureNavBar() {
+//        navigationItem.title = "Create Collection"
+//        navigationController?.navigationBar.prefersLargeTitles = true
+//        let createBarItem = UIBarButtonItem(title: "Create", style: .plain, target: self, action: #selector(createCollection))
+//        navigationItem.rightBarButtonItem = createBarItem
+//    }
     
     @objc func createCollection() {
         createCollectionView.textField.text = newCollectionName
