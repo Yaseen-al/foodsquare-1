@@ -125,7 +125,6 @@ class SearchViewController: UIViewController {
         searchView.collectionView.isHidden = true
     }
 }
-
 //MARK: - CollectionView DataSource
 extension SearchViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -136,7 +135,7 @@ extension SearchViewController: UICollectionViewDataSource{
         let venueSetup = venues[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "customCell", for: indexPath) as! SearchViewCustomCollectionViewCell
         cell.venueLabel.text = venueSetup.name
-        cell.venueImage.image = nil
+        cell.venueImage.image = #imageLiteral(resourceName: "restaurant logo")
         var items = [Item](){
             didSet{
                 print(items.count)
