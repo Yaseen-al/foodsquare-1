@@ -250,6 +250,7 @@ extension SearchViewController: LocationDelegate{
         configureMapRegion(from: location)
         LocationService.manager.getCityNameFromCLLocation(inputCLLocation: location) { (name) in
             self.searchView.locationSearchBar.placeholder = name
+            self.currentCity = name
         }
         self.searchView.mapView.showsUserLocation = true
     }
