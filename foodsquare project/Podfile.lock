@@ -2,17 +2,20 @@ PODS:
   - Alamofire (4.6.0)
   - Kingfisher (4.6.1)
   - SnapKit (4.0.0)
+  - TableFlip (1.2)
 
 DEPENDENCIES:
   - Alamofire (~> 4.5)
   - Kingfisher (~> 4.6)
   - SnapKit (~> 4.0)
+  - TableFlip
 
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
   Kingfisher: 1f9157d9c02b380cbd0b7cc890161195164eb634
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+  TableFlip: 2ae22773412b295a7cbc54d95b44085bb28092f6
 
-PODFILE CHECKSUM: 9b9a0585b19946096795c7ab71286553523f21af
+PODFILE CHECKSUM: f85ddd429c341117055deb1aef9fefdc4b846d68
 
 COCOAPODS: 1.4.0

@@ -235,7 +235,6 @@
 		81FD7D00201946D50052402A /* DataToExclude */ = {
 			isa = PBXGroup;
 			children = (
-				81357DE8201AA878004F0572 /* APIKeys.swift */,
 			);
 			path = DataToExclude;
 			sourceTree = "<group>";
@@ -320,12 +319,14 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/TableFlip/TableFlip.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TableFlip.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -385,11 +386,12 @@
 				81ED30F42017FB5B00A0A7EC /* VenueDetailedViewController.swift in Sources */,
 				81ED30D02017F75000A0A7EC /* UserPreference.swift in Sources */,
 				81ED30D62017F91700A0A7EC /* Photo.swift in Sources */,
+				81CA905D201A8EA90094A196 /* SecretKeys.swift in Sources */,
 				81ED30E62017F9E600A0A7EC /* SearchView.swift in Sources */,
 				81ED30C82017F6D400A0A7EC /* FoursquareAPISettings.swift in Sources */,
 				81ED30E22017F9C600A0A7EC /* CreateCollectionView.swift in Sources */,
 				81ED30F02017FA5C00A0A7EC /* ResultsViewController.swift in Sources */,
-				81DDC51E20196A98000A0D33 /* (null) in Sources */,
+				81DDC51E20196A98000A0D33 /* BuildFile in Sources */,
 				81ED30EC2017FA4200A0A7EC /* UserFavoritesViewController.swift in Sources */,
 				81ED30CE2017F73500A0A7EC /* PhotoAPIClient.swift in Sources */,
 				81285E56201A93B10056FF01 /* VenueListView.swift in Sources */,

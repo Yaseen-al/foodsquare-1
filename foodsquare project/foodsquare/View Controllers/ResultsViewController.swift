@@ -9,6 +9,7 @@
 import UIKit
 import SnapKit
 import Kingfisher
+import TableFlip
 
 /// Connect to the Search VC > Nav Bar
 
@@ -16,8 +17,12 @@ class ResultsViewController: UIViewController {
     
     let resultsView = ResultsView()
     
-    var venues = [Venue]()
-    
+    var venues = [Venue]() {
+        didSet {
+            print("==== venues set ====")
+        }
+    }
+
     init(venues: [Venue]) {
         super.init(nibName: nil, bundle: nil)
         self.venues = venues
@@ -36,18 +41,29 @@ class ResultsViewController: UIViewController {
         resultsView.resultsTableView.dataSource = self
         
         configureNavBar()
+        
+        animateTableView()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.resultsView.resultsTableView.reloadData()
+        animateTableView()
+    }
+    
     
     private func configureNavBar() {
         navigationItem.title = "Results List"
         navigationController?.navigationBar.prefersLargeTitles = true
     }
+    
+    private func animateTableView() {
+        self.resultsView.resultsTableView.animate(animation: TableViewAnimation.Table.top(duration: 0.7))
+    }
 }
 
 extension ResultsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //        return venues.count
-        return 10
+        return venues.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -77,23 +93,12 @@ extension ResultsViewController: UITableViewDataSource {
 }
 
 extension ResultsViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let venue = venues[indexPath.row]
-        var cellImage: UIImage!
-
-        
-        if let cell = tableView.cellForRow(at: indexPath) as? ResultCustomTableViewCell {
-            if let image = cell.venueImageView.image {
-                cellImage = image
-            } else {
-                cellImage = #imageLiteral(resourceName: "No_Image_Available")
-            }
-        }
         /// segue to dvc
         let dvc = VenueDetailedViewController(venue: venue)
         navigationController?.pushViewController(dvc, animated: true)
-        
-        
         
     }
     
