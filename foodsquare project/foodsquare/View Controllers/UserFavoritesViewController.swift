@@ -114,7 +114,7 @@ extension UserFavoritesViewController: UICollectionViewDelegate{
             return
         }
         
-        let venueListViewController = VenueListViewController(venues: favoriteVenues)
+        let venueListViewController = VenueListViewController(venues: favoriteVenues, collection: favorite)
         self.navigationController?.pushViewController(venueListViewController, animated: true)
     }
 }

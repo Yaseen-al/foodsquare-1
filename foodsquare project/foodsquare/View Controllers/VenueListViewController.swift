@@ -10,9 +10,11 @@ import UIKit
 
 class VenueListViewController: UIViewController {
     var venues:[Venue]!
-    init(venues: [Venue]) {
+    var collection: Collection!
+    init(venues: [Venue], collection: Collection) {
         super.init(nibName: nil, bundle: nil)
         self.venues = venues
+        self.collection = collection
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -34,7 +36,7 @@ class VenueListViewController: UIViewController {
     }
     func configureNavBar(){
         //TODO configure the navigation bar and add a create new collection button
-        navigationItem.title = "Venues"
+        navigationItem.title = collection.title
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     private func setupVenueListView(){
