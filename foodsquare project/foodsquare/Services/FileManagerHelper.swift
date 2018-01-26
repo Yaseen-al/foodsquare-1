@@ -16,7 +16,7 @@ class FileManagerHelper {
     private init() {}
     let savedCollectionPath = "savedCollections"
     static let manager = FileManagerHelper()
-    private var savedCollection = [Collection(venues: nil, title: "Tasty on the Budget", imageName: "restaurant logo")] {
+    private var savedCollection = [Collection(venues: nil, title: "My Favorite Restaurants", imageName: "restaurant logo")] {
         didSet {
             saveCollections()
         }

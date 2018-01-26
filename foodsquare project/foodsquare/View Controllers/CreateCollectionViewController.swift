@@ -13,33 +13,39 @@ import UIKit
 class CreateCollectionViewController: UIViewController {
     
     let createCollectionView = CreateCollectionView()
-    
-    let newCollectionName: String? = ""
+    var preCreatedCollection: Collection? = nil
+    var newCollectionName: String? = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         self.view.addSubview(createCollectionView)
         createCollectionView.textField.delegate = self
-//        configureNavBar()
+        configureNavBar()
     }
     
-//    private func configureNavBar() {
-//        navigationItem.title = "Create Collection"
-//        navigationController?.navigationBar.prefersLargeTitles = true
-//        let createBarItem = UIBarButtonItem(title: "Create", style: .plain, target: self, action: #selector(createCollection))
-//        navigationItem.rightBarButtonItem = createBarItem
-//    }
-    
-    @objc func createCollection() {
-        createCollectionView.textField.text = newCollectionName
-        print("Create button pressed")
-        
-        /// save this New Collection Name to the Favorites VC Collection View
-        
-        /// create a new empty Collection of Favorites with the given name from the textfield
+    private func configureNavBar() {
+        navigationItem.title = "Create Collection"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        let createButton = UIBarButtonItem(title: "Create", style: .plain, target: self, action: #selector(createButtonAction))
+        self.navigationItem.rightBarButtonItem = createButton
+    }
+    //MARK: _ Create Button Action
+    @objc func createButtonAction(){
+        newCollectionName = createCollectionView.textField.text
+        FileManagerHelper.manager.addNew(newCollection: Collection(venues: nil, title: newCollectionName!, imageName: ""))
+        print("DEV: create collection is pressed")
+        let alert = UIAlertController(title: "New Collection Created", message: "", preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "Ok", style: .default, handler: { (handler) in
+            // go back to the previous viewcontroller
+            _ = self.navigationController?.popViewController(animated: true)
+
+        })
+        alert.addAction(alertAction)
+        self.present(alert, animated: true, completion: nil)
     }
 }
+
 
 
 extension CreateCollectionViewController: UITextFieldDelegate {
@@ -47,11 +53,6 @@ extension CreateCollectionViewController: UITextFieldDelegate {
         textField.becomeFirstResponder()
     }
     
-    /// do not use this function below, use createCollection button instead
-    //    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-    //        textField.resignFirstResponder()
-    //        return true
-    //    }
 }
 
 

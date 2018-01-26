@@ -16,15 +16,9 @@ class CreateCollectionView: UIView {
     lazy var containerView: UIView = {
         let view = UIView()
         view.layer.masksToBounds = true
-        view.layer.cornerRadius = 20
-        view.backgroundColor = .red
+        view.layer.cornerRadius = 15
+        view.backgroundColor = .white
         return view
-    }()
-    
-    lazy var dismissButton: UIButton = {
-        let button = UIButton()
-        button.setImage(#imageLiteral(resourceName: "dismissButtonIcon"), for: .normal)
-        return button
     }()
     
     lazy var textField: UITextField = {
@@ -55,39 +49,25 @@ class CreateCollectionView: UIView {
     private func setupViews() {
         setupContainerView()
         setupTextField()
-        setupDismissButton()
-    }
-    
-    
-    private func setupTextField() {
-        addSubview(textField)
-        // snapkit constraints
-        textField.snp.makeConstraints { (make) in
-            make.top.equalTo(containerView.snp.top)
-            make.width.equalTo(containerView.snp.width)
-            make.height.equalTo(containerView.snp.height).multipliedBy(0.09)
-            make.centerX.equalTo(containerView.snp.centerX)
-        }
     }
     
     private func setupContainerView() {
         addSubview(containerView)
         containerView.snp.makeConstraints { (make) in
-            make.centerX.equalTo(snp.centerX)
-            make.centerY.equalTo(snp.centerY)
-            make.width.equalTo(snp.width).multipliedBy(0.90)
-            make.height.equalTo(snp.height).multipliedBy(0.80)
-        }
-        
-    }
-    private func setupDismissButton() {
-        addSubview(dismissButton)
-        dismissButton.snp.makeConstraints { (make) in
-            make.top.equalTo(containerView.snp.top).offset(10)
-            make.leading.equalTo(containerView.snp.leading).offset(10)
+            make.top.bottom.leading.trailing.equalTo(safeAreaLayoutGuide)
         }
     }
-    
+
+    private func setupTextField() {
+        addSubview(textField)
+        // snapkit constraints
+        textField.snp.makeConstraints { (make) in
+            make.top.equalTo(containerView.snp.top).offset(5)
+            make.width.equalTo(containerView.snp.width)
+            make.height.equalTo(containerView.snp.height).multipliedBy(0.09)
+            make.centerX.equalTo(containerView.snp.centerX)
+        }
+    }
 }
 
 

@@ -81,7 +81,7 @@ extension ResultsViewController: UITableViewDataSource {
                 }
                 let imageURLStr = "\(item.purplePrefix)\(item.width)\(item.height)\(item.suffix)"
                 let imageURL = URL(string: imageURLStr)
-                cell.venueImageView.kf.setImage(with: imageURL, placeholder: #imageLiteral(resourceName: "restaurant logo"), options: nil, progressBlock: nil, completionHandler: nil)
+                cell.venueImageView.kf.setImage(with: imageURL, placeholder: nil, options: nil, progressBlock: nil, completionHandler: nil)
             }
         }
         PhotoAFireAPIClient.manager.getPhotosForVenue(venueID: venue.id

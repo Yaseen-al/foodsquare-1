@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 class VenueDetailedViewController: UIViewController {
+    var imageToSave: UIImage?
     var venue: Venue
     init(venue: Venue) {
         self.venue = venue
@@ -42,14 +43,14 @@ class VenueDetailedViewController: UIViewController {
                 if let image = ImageCache.manager.getImage(with: imageURLStr){
                     
                     self.venueView.venueImageView.image = image
-                    
-                    
+                    self.imageToSave = image
                 }else{
                     let imageURL =  URL(string: imageURLStr)
         
                     self.venueView.venueImageView.kf.setImage(with: imageURL, placeholder: #imageLiteral(resourceName: "restaurant logo"), options: nil, progressBlock: nil, completionHandler: { (image, error, cache, url) in
                         if let image = image{
                             ImageCache.manager.addImage(with: imageURLStr, and: image)
+                            self.imageToSave = image
                         }
                     })
                     
@@ -83,9 +84,9 @@ class VenueDetailedViewController: UIViewController {
     //MARK: - addNavButton Action
     @objc func addNavButtonAction(){
         //TODO Add the venue to a collection buy going to the addToCollection view controller
-        let preCreatedCollection = Collection(venues: nil, title: "American Food", imageName: "burger Image")
+        let preCreatedCollection = Collection(venues: nil, title: "My First Collection", imageName: self.venue.name)
         
-        let saveVenueToFavoritesViewController = SaveToFavoritesViewController(venue: self.venue, precreatedCollection: preCreatedCollection)
+        let saveVenueToFavoritesViewController = SaveToFavoritesViewController(venue: self.venue, precreatedCollection: preCreatedCollection,image: imageToSave!)
         let SaveVenueToFavoritesNavController = UINavigationController(rootViewController: saveVenueToFavoritesViewController)
         present(SaveVenueToFavoritesNavController, animated: true, completion: nil)
     }
