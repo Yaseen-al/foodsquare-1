@@ -104,6 +104,8 @@ class SearchViewController: UIViewController {
     
     //MARK: - Configure the nav Bar
     func configureNavBar(){
+        navigationController?.navigationBar.barTintColor = foodsquareColor.mainColor
+
         navigationController?.navigationBar.prefersLargeTitles = false
         let listNavBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Menu"), style: .plain, target: self, action: #selector(listNavBarButtonItemAction))
         navigationItem.rightBarButtonItem = listNavBarButtonItem
@@ -153,7 +155,6 @@ extension SearchViewController: UICollectionViewDataSource{
         let venueSetup = venues[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "customCell", for: indexPath) as! SearchViewCustomCollectionViewCell
         cell.venueLabel.text = venueSetup.name
-        cell.venueImage.image = #imageLiteral(resourceName: "restaurant logo")
         var items = [Item](){
             didSet{
                 print(items.count)

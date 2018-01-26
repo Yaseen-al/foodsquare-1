@@ -6,8 +6,8 @@
 //  Copyright © 2018 C4Q. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-
-
-
+struct foodsquareColor{
+    static let mainColor = UIColor(displayP3Red: 255/255, green: 194/255, blue: 102/255, alpha: 1 )
+}

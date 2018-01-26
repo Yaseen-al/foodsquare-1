@@ -42,12 +42,12 @@ class SearchView: UIView {
     lazy var venueSearchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.placeholder = "What food are you craving today?"
-        
+
         return searchBar
     }()
     lazy var locationSearchBar: UISearchBar = {
         let searchBar = UISearchBar()
-        searchBar.barTintColor = UIColor(displayP3Red: 249/255, green: 249/255, blue: 249/255, alpha: 1 )
+        searchBar.barTintColor = foodsquareColor.mainColor
         searchBar.searchBarStyle = UISearchBarStyle.prominent
         searchBar.placeholder = "Your city goes here"
         return searchBar

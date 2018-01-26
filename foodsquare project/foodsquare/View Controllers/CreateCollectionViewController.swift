@@ -29,6 +29,7 @@ class CreateCollectionViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         let createButton = UIBarButtonItem(title: "Create", style: .plain, target: self, action: #selector(createButtonAction))
         self.navigationItem.rightBarButtonItem = createButton
+          navigationController?.navigationBar.barTintColor = foodsquareColor.mainColor
     }
     //MARK: _ Create Button Action
     @objc func createButtonAction(){
