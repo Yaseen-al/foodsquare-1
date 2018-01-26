@@ -32,7 +32,10 @@ class SaveToFavoritesViewController: UIViewController {
         //configuring the navigation bar
         setupsaveToFavoriteView()
         configureNavBar()
+        //textFieldDelegate
         self.saveToFavoriteView.newCollectionTitleTextField.delegate = self
+        //textViewDelegate
+        self.saveToFavoriteView.tipTextView.delegate = self
         FileManagerHelper.manager.loadCollections()
         self.favoriteCollections = FileManagerHelper.manager.getAllCollections()
         
@@ -70,6 +73,7 @@ class SaveToFavoritesViewController: UIViewController {
         let alert = UIAlertController(title: "You have a new collection now, hit the road with some venue search", message: "", preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "Ok", style: .default, handler: { (handler) in
             //TODO : go back to the previos viewcontroller
+             self.dismiss(animated: true, completion: nil)
         })
         alert.addAction(alertAction)
         self.present(alert, animated: true, completion: nil)
@@ -82,15 +86,12 @@ class SaveToFavoritesViewController: UIViewController {
             constraint.edges.equalTo(self.view.safeAreaLayoutGuide)
         }
     }
-    
-    
 }
 // Mark: CollectionView DataSource Extension
 extension SaveToFavoritesViewController:  UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.favoriteCollections.count
     }
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "customCell", for: indexPath) as! SaveToFavoritesCustomCollectionViewCell
@@ -99,9 +100,8 @@ extension SaveToFavoritesViewController:  UICollectionViewDataSource{
         cell.collectionImage.image = UIImage(named: collectionSetup.imageName)
         return cell
     }
-    
-    
 }
+
 // Mark: CollectionView Delegates Extension
 extension SaveToFavoritesViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -111,6 +111,7 @@ extension SaveToFavoritesViewController: UICollectionViewDelegate{
         case .alreadyExists:
             let alert = UIAlertController(title: "Venue already exist in your collection", message: "", preferredStyle: .alert)
             let alertAction = UIAlertAction(title: "Ok", style: .default, handler: { (handler) in
+                             self.dismiss(animated: true, completion: nil)
             })
             alert.addAction(alertAction)
             self.present(alert, animated: true, completion: nil)
@@ -118,9 +119,11 @@ extension SaveToFavoritesViewController: UICollectionViewDelegate{
         case .addedSuccessfully:
             let alert = UIAlertController(title: "Succesfully Added your item to your collection", message: "", preferredStyle: .alert)
             let alertAction = UIAlertAction(title: "Ok", style: .default, handler: { (handler) in
+                             self.dismiss(animated: true, completion: nil)
             })
             alert.addAction(alertAction)
             self.present(alert, animated: true, completion: nil)
+
         }
         
     }
@@ -147,4 +150,20 @@ extension SaveToFavoritesViewController: UITextFieldDelegate{
         textField.resignFirstResponder()
     }
 }
+//MARK: - textViewDelegate
+extension SaveToFavoritesViewController: UITextViewDelegate{
+    func textViewDidEndEditing(_ textView: UITextView) {
+        guard let text = textView.text else{
+            return
+        }
+        guard var tips = self.venue.tips else{
+            self.venue.tips = [text]
+            return
+        }
+        tips.append(text)
+        self.venue.tips = tips
+    }
+}
+
+
 

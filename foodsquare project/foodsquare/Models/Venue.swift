@@ -22,6 +22,7 @@ struct Venue: Codable {
     var contact: Contact
     var location: Location
     var categories: [Category]
+    var tips:[String]? 
 }
 
 struct Contact: Codable {
