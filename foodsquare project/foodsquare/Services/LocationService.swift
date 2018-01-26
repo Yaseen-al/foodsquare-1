@@ -10,11 +10,20 @@ import Foundation
 import CoreLocation
 import MapKit
 
+
+protocol LocationDelegate: class {
+    func userAllowedLocation(with location: CLLocation)
+    func userDeniedLocation()
+    
+}
+
 // This class will create a singlton of the loacationservice which is highly recomended from apple
 class LocationService: NSObject {
     static let manager = LocationService()
     private var locationManager: CLLocationManager!
     private var geoCOder = CLGeocoder()
+    var delegate: LocationDelegate?
+    
     private override init() {
         super.init()
         locationManager = CLLocationManager()
@@ -22,7 +31,10 @@ class LocationService: NSObject {
         locationManager.startUpdatingLocation()
         locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
     }
-}
+    
+    
+    }
+
 
 //MARK: -  Location Status function
 extension LocationService{
@@ -55,10 +67,11 @@ extension LocationService: CLLocationManagerDelegate{
         guard let location = locations.last else { print("no location data"); return }
         
         // update user preferences
+        delegate?.userAllowedLocation(with: location)
         UserPreference.manager.setLatitude(latitude: location.coordinate.latitude)
         UserPreference.manager.setLongitude(longitude: location.coordinate.longitude)
-        
         locationManager.stopUpdatingLocation()
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -66,7 +79,26 @@ extension LocationService: CLLocationManagerDelegate{
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        print("didChangeAuthorization: \(status)") // e.g .denied, .notDetermined
+        print("TESTINGGGGGG didChangeAuthorization: \(status.rawValue)") // e.g .denied, .notDetermined
+        
+        
+        switch status {
+        case .authorizedAlways:
+            print("t1")
+            break
+        case .authorizedWhenInUse:
+            print("t2")
+            break
+        case .denied:
+            delegate?.userDeniedLocation()
+            print("denied testing")
+            break
+        case .notDetermined:
+            break
+        case .restricted:
+             break
+            
+        }
     }
 }
 
