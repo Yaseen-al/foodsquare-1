@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Add the navigationController to the tabBarController
         tabBarController.setViewControllers([searchNavigationController, UserFavoritesNavigationController], animated: true)
-        
+        tabBarController.tabBar.backgroundColor = foodsquareColor.mainColor
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
         return true
