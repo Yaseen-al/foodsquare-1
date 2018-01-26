@@ -41,23 +41,20 @@ class ResultsViewController: UIViewController {
         resultsView.resultsTableView.dataSource = self
         
         configureNavBar()
-        
-        animateTableView()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        self.resultsView.resultsTableView.reloadData()
+    override func viewWillLayoutSubviews() {
         animateTableView()
     }
-    
     
     private func configureNavBar() {
         navigationItem.title = "Results List"
         navigationController?.navigationBar.prefersLargeTitles = true
+        
     }
     
     private func animateTableView() {
-        self.resultsView.resultsTableView.animate(animation: TableViewAnimation.Table.top(duration: 0.7))
+        self.resultsView.resultsTableView.animate(animation: TableViewAnimation.Cell.fade(duration: 1.0))
     }
 }
 
@@ -81,6 +78,7 @@ extension ResultsViewController: UITableViewDataSource {
                 }
                 let imageURLStr = "\(item.purplePrefix)\(item.width)\(item.height)\(item.suffix)"
                 let imageURL = URL(string: imageURLStr)
+                cell.venueImageView.kf.indicatorType = .activity
                 cell.venueImageView.kf.setImage(with: imageURL, placeholder: nil, options: nil, progressBlock: nil, completionHandler: nil)
             }
         }
@@ -98,6 +96,7 @@ extension ResultsViewController: UITableViewDelegate {
         let venue = venues[indexPath.row]
         /// segue to dvc
         let dvc = VenueDetailedViewController(venue: venue)
+        
         navigationController?.pushViewController(dvc, animated: true)
         
     }
