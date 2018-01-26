@@ -40,14 +40,18 @@
 		81ED30F42017FB5B00A0A7EC /* VenueDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ED30F32017FB5B00A0A7EC /* VenueDetailedViewController.swift */; };
 		81ED30F62017FB7600A0A7EC /* VenueListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ED30F52017FB7600A0A7EC /* VenueListViewController.swift */; };
 		81ED30F82017FBC600A0A7EC /* SearchViewCustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ED30F72017FBC600A0A7EC /* SearchViewCustomCollectionViewCell.swift */; };
+		81F8752F201AB95300932DF0 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F8752E201AB95300932DF0 /* APIKeys.swift */; };
 		81F88E9C201A770C00F90D6B /* StyleSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F88E9B201A770C00F90D6B /* StyleSheet.swift */; };
 		87C9AE5F201821750029B6D9 /* UserFavoritesCustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C9AE5E201821750029B6D9 /* UserFavoritesCustomCollectionViewCell.swift */; };
 		9BBE0AA169BC8B68C2A4481E /* Pods_foodsquare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE4858FDDB874BA70F3A3AF9 /* Pods_foodsquare.framework */; };
+		F407B668201A81BD001D32DD /* LoadingScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F407B667201A81BD001D32DD /* LoadingScreenViewController.swift */; };
+		F407B66A201A81E9001D32DD /* LoadingScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F407B669201A81E9001D32DD /* LoadingScreenView.swift */; };
+		F455EF50201AC3DA00633F14 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = F455EF4F201AC3DA00633F14 /* APIKeys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		42A2A01FA40EE7C6BAC8DA81 /* Pods-foodsquare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foodsquare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-foodsquare/Pods-foodsquare.debug.xcconfig"; sourceTree = "<group>"; };
-		5E6121A4BC152988A90B17CB /* Pods-foodsquare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foodsquare.release.xcconfig"; path = "Pods/Target Support Files/Pods-foodsquare/Pods-foodsquare.release.xcconfig"; sourceTree = "<group>"; };
+		2BC1A1028E978A8C859D5A5B /* Pods_foodsquare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_foodsquare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3697B0E0371A143B906AE6C8 /* Pods-foodsquare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foodsquare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-foodsquare/Pods-foodsquare.debug.xcconfig"; sourceTree = "<group>"; };
 		81285E51201A8B6E0056FF01 /* FileManagerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerHelper.swift; sourceTree = "<group>"; };
 		81285E53201A8F580056FF01 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		81285E55201A93B00056FF01 /* VenueListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueListView.swift; sourceTree = "<group>"; };
@@ -82,9 +86,14 @@
 		81ED30F32017FB5B00A0A7EC /* VenueDetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueDetailedViewController.swift; sourceTree = "<group>"; };
 		81ED30F52017FB7600A0A7EC /* VenueListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueListViewController.swift; sourceTree = "<group>"; };
 		81ED30F72017FBC600A0A7EC /* SearchViewCustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewCustomCollectionViewCell.swift; sourceTree = "<group>"; };
+		81F8752E201AB95300932DF0 /* APIKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
 		81F88E9B201A770C00F90D6B /* StyleSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleSheet.swift; sourceTree = "<group>"; };
 		87C9AE5E201821750029B6D9 /* UserFavoritesCustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFavoritesCustomCollectionViewCell.swift; sourceTree = "<group>"; };
+		C537C2581FC42BA4762FB18F /* Pods-foodsquare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foodsquare.release.xcconfig"; path = "Pods/Target Support Files/Pods-foodsquare/Pods-foodsquare.release.xcconfig"; sourceTree = "<group>"; };
 		DE4858FDDB874BA70F3A3AF9 /* Pods_foodsquare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_foodsquare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F407B667201A81BD001D32DD /* LoadingScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreenViewController.swift; sourceTree = "<group>"; };
+		F407B669201A81E9001D32DD /* LoadingScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreenView.swift; sourceTree = "<group>"; };
+		F455EF4F201AC3DA00633F14 /* APIKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,28 +101,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BBE0AA169BC8B68C2A4481E /* Pods_foodsquare.framework in Frameworks */,
+				8F8F8F416EC9DC857C5531BE /* Pods_foodsquare.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		404F169A924E9132C40ADA49 /* Pods */ = {
+		3C7E793C4B251996C8CD57D3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				42A2A01FA40EE7C6BAC8DA81 /* Pods-foodsquare.debug.xcconfig */,
-				5E6121A4BC152988A90B17CB /* Pods-foodsquare.release.xcconfig */,
+				3697B0E0371A143B906AE6C8 /* Pods-foodsquare.debug.xcconfig */,
+				C537C2581FC42BA4762FB18F /* Pods-foodsquare.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		5EAC65B156F3DBDC92D27EB9 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				DE4858FDDB874BA70F3A3AF9 /* Pods_foodsquare.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		81ED30A32017F44900A0A7EC = {
@@ -121,9 +122,9 @@
 			children = (
 				81ED30AE2017F44A00A0A7EC /* foodsquare */,
 				81ED30AD2017F44A00A0A7EC /* Products */,
-				404F169A924E9132C40ADA49 /* Pods */,
-				5EAC65B156F3DBDC92D27EB9 /* Frameworks */,
 				81F88E98201A4C2E00F90D6B /* Recovered References */,
+				3C7E793C4B251996C8CD57D3 /* Pods */,
+				DAF71C0FEB23A8F43A52DA0A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -138,7 +139,7 @@
 		81ED30AE2017F44A00A0A7EC /* foodsquare */ = {
 			isa = PBXGroup;
 			children = (
-				81FD7D00201946D50052402A /* DataToExclude */,
+				F455EF4E201AC3DA00633F14 /* DataToExclude */,
 				81ED30C62017F5A000A0A7EC /* Services */,
 				81ED30C52017F59A00A0A7EC /* Models */,
 				81ED30C42017F58B00A0A7EC /* Custom Cells */,
@@ -169,6 +170,7 @@
 				81ED30E32017F9DB00A0A7EC /* UserFavoritesView.swift */,
 				81ED30E52017F9E600A0A7EC /* SearchView.swift */,
 				81ED30E72017FA0F00A0A7EC /* VenueDetailView.swift */,
+				F407B669201A81E9001D32DD /* LoadingScreenView.swift */,
 				81285E55201A93B00056FF01 /* VenueListView.swift */,
 			);
 			path = Views;
@@ -184,6 +186,7 @@
 				81ED30F12017FB3C00A0A7EC /* CreateCollectionViewController.swift */,
 				81ED30F32017FB5B00A0A7EC /* VenueDetailedViewController.swift */,
 				81ED30F52017FB7600A0A7EC /* VenueListViewController.swift */,
+				F407B667201A81BD001D32DD /* LoadingScreenViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -232,12 +235,20 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
-		81FD7D00201946D50052402A /* DataToExclude */ = {
+		F455EF4E201AC3DA00633F14 /* DataToExclude */ = {
 			isa = PBXGroup;
 			children = (
 				814EB161201AB6E400F2E433 /* SecretKeys.swift */,
 			);
 			path = DataToExclude;
+			sourceTree = "<group>";
+		};
+		DAF71C0FEB23A8F43A52DA0A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2BC1A1028E978A8C859D5A5B /* Pods_foodsquare.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,12 +258,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 81ED30BE2017F44A00A0A7EC /* Build configuration list for PBXNativeTarget "foodsquare" */;
 			buildPhases = (
-				9FDF93B191842E241996C423 /* [CP] Check Pods Manifest.lock */,
+				68A12D14CFDBE7F89E3EF61C /* [CP] Check Pods Manifest.lock */,
 				81ED30A82017F44A00A0A7EC /* Sources */,
 				81ED30A92017F44A00A0A7EC /* Frameworks */,
 				81ED30AA2017F44A00A0A7EC /* Resources */,
-				275AD07AA2DB50D11266E35E /* [CP] Embed Pods Frameworks */,
-				9C603472D4776CCC1EF733DC /* [CP] Copy Pods Resources */,
+				41AD7E7D4DC1701C0C78DC52 /* [CP] Embed Pods Frameworks */,
+				6F529966CE38A0FB83A1E569 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -310,7 +321,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		275AD07AA2DB50D11266E35E /* [CP] Embed Pods Frameworks */ = {
+		41AD7E7D4DC1701C0C78DC52 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -334,22 +345,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-foodsquare/Pods-foodsquare-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9C603472D4776CCC1EF733DC /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-foodsquare/Pods-foodsquare-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9FDF93B191842E241996C423 /* [CP] Check Pods Manifest.lock */ = {
+		68A12D14CFDBE7F89E3EF61C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -365,6 +361,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6F529966CE38A0FB83A1E569 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-foodsquare/Pods-foodsquare-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -385,18 +396,22 @@
 				81285E52201A8B6E0056FF01 /* FileManagerHelper.swift in Sources */,
 				81ED30F42017FB5B00A0A7EC /* VenueDetailedViewController.swift in Sources */,
 				81ED30D02017F75000A0A7EC /* UserPreference.swift in Sources */,
+				F407B668201A81BD001D32DD /* LoadingScreenViewController.swift in Sources */,
 				81ED30D62017F91700A0A7EC /* Photo.swift in Sources */,
 				81ED30E62017F9E600A0A7EC /* SearchView.swift in Sources */,
 				81ED30C82017F6D400A0A7EC /* FoursquareAPISettings.swift in Sources */,
 				81ED30E22017F9C600A0A7EC /* CreateCollectionView.swift in Sources */,
+				F455EF50201AC3DA00633F14 /* APIKeys.swift in Sources */,
 				81ED30F02017FA5C00A0A7EC /* ResultsViewController.swift in Sources */,
 				81DDC51E20196A98000A0D33 /* (null) in Sources */,
 				81ED30EC2017FA4200A0A7EC /* UserFavoritesViewController.swift in Sources */,
 				81ED30CE2017F73500A0A7EC /* PhotoAPIClient.swift in Sources */,
 				81285E56201A93B10056FF01 /* VenueListView.swift in Sources */,
 				87C9AE5F201821750029B6D9 /* UserFavoritesCustomCollectionViewCell.swift in Sources */,
+				F407B66A201A81E9001D32DD /* LoadingScreenView.swift in Sources */,
 				81ED30CC2017F72700A0A7EC /* LocationService.swift in Sources */,
 				81ED30F62017FB7600A0A7EC /* VenueListViewController.swift in Sources */,
+				81F8752F201AB95300932DF0 /* APIKeys.swift in Sources */,
 				81F88E9C201A770C00F90D6B /* StyleSheet.swift in Sources */,
 				81ED30DE2017F9B100A0A7EC /* SaveToFavoritesView.swift in Sources */,
 				81ED30B02017F44A00A0A7EC /* AppDelegate.swift in Sources */,
@@ -533,7 +548,7 @@
 		};
 		81ED30BF2017F44A00A0A7EC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 42A2A01FA40EE7C6BAC8DA81 /* Pods-foodsquare.debug.xcconfig */;
+			baseConfigurationReference = 3697B0E0371A143B906AE6C8 /* Pods-foodsquare.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -549,7 +564,7 @@
 		};
 		81ED30C02017F44A00A0A7EC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5E6121A4BC152988A90B17CB /* Pods-foodsquare.release.xcconfig */;
+			baseConfigurationReference = C537C2581FC42BA4762FB18F /* Pods-foodsquare.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

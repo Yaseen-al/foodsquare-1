@@ -41,11 +41,20 @@ class SearchViewController: UIViewController {
     }
     
     let searchView = SearchView()
-
+    
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+       self.searchView.locationSearchBar.endEditing(true)
+        self.searchView.venueSearchBar.endEditing(true)
+    }
     
     //MARK: - ViewDidLoad
     override func viewDidLoad() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        tap.cancelsTouchesInView = false
         self.view.backgroundColor = .white
+        self.view.addGestureRecognizer(tap)
+        
         //collectionView dataSource and delegate
         self.searchView.collectionView.dataSource = self
         self.searchView.collectionView.delegate = self
@@ -128,8 +137,10 @@ extension SearchViewController: UICollectionViewDataSource{
                 }
                 let imageURLStr = "\(item.purplePrefix)\(item.width)\(item.height)\(item.suffix)"
                 let imageURL =  URL(string: imageURLStr)
-                cell.venueImage.kf.setImage(with: imageURL, placeholder: #imageLiteral(resourceName: "restaurant logo"), options: nil, progressBlock: nil, completionHandler: nil)
-            }
+                cell.venueImage.kf.indicatorType = .activity
+                cell.venueImage.kf.setImage(with: imageURL, placeholder: nil, options: nil, progressBlock: nil, completionHandler: nil)
+                
+                    }
         }
         PhotoAFireAPIClient.manager.getPhotosForVenue(venueID: venueSetup.id
             , completionHandler: {items = $0}, errorHandler: {print($0)})
@@ -202,7 +213,7 @@ extension SearchViewController: LocationDelegate{
     func userDeniedLocation() {
         LocationService.manager.getCityCordinateFromCityName(inputCityName: "New York City", completion: { (location) in
             self.configureMapRegion(from: location)
-            VenueAFireAPIClient.manager.getVenues(searchTerm: "Beer", location: location, completionHandler: {self.venues = $0
+            VenueAFireAPIClient.manager.getVenues(searchTerm: "Coffee", location: location, completionHandler: {self.venues = $0
             }, errorHandler: {print($0)})
         }, errorHandler: {_ in print("error")})
         

@@ -17,7 +17,7 @@ class CreateCollectionView: UIView {
         let view = UIView()
         view.layer.masksToBounds = true
         view.layer.cornerRadius = 20
-        view.backgroundColor = .white
+        view.backgroundColor = .red
         return view
     }()
     
@@ -53,8 +53,8 @@ class CreateCollectionView: UIView {
     }
     
     private func setupViews() {
-        setupTextField()
         setupContainerView()
+        setupTextField()
         setupDismissButton()
     }
     
@@ -63,10 +63,10 @@ class CreateCollectionView: UIView {
         addSubview(textField)
         // snapkit constraints
         textField.snp.makeConstraints { (make) in
-            make.top.equalTo(safeAreaLayoutGuide.snp.top)
-            make.width.equalTo(safeAreaLayoutGuide.snp.width)
-            make.height.equalTo(safeAreaLayoutGuide.snp.height).multipliedBy(0.09)
-            make.centerX.equalTo(center)
+            make.top.equalTo(containerView.snp.top)
+            make.width.equalTo(containerView.snp.width)
+            make.height.equalTo(containerView.snp.height).multipliedBy(0.09)
+            make.centerX.equalTo(containerView.snp.centerX)
         }
     }
     
@@ -84,7 +84,7 @@ class CreateCollectionView: UIView {
         addSubview(dismissButton)
         dismissButton.snp.makeConstraints { (make) in
             make.top.equalTo(containerView.snp.top).offset(10)
-            make.trailing.equalTo(containerView.snp.trailing).offset(-10)
+            make.leading.equalTo(containerView.snp.leading).offset(10)
         }
     }
 }
