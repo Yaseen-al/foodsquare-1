@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		81285E50201A8A990056FF01 /* SecretKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81285E4F201A8A990056FF01 /* SecretKeys.swift */; };
 		81285E52201A8B6E0056FF01 /* FileManagerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81285E51201A8B6E0056FF01 /* FileManagerHelper.swift */; };
-		81DDC51E20196A98000A0D33 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		81CA905D201A8EA90094A196 /* SecretKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CA905C201A8EA90094A196 /* SecretKeys.swift */; };
+		81DDC51E20196A98000A0D33 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
 		81ED30B02017F44A00A0A7EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ED30AF2017F44A00A0A7EC /* AppDelegate.swift */; };
 		81ED30B72017F44A00A0A7EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81ED30B62017F44A00A0A7EC /* Assets.xcassets */; };
 		81ED30BA2017F44A00A0A7EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81ED30B82017F44A00A0A7EC /* LaunchScreen.storyboard */; };
@@ -46,8 +46,8 @@
 /* Begin PBXFileReference section */
 		42A2A01FA40EE7C6BAC8DA81 /* Pods-foodsquare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foodsquare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-foodsquare/Pods-foodsquare.debug.xcconfig"; sourceTree = "<group>"; };
 		5E6121A4BC152988A90B17CB /* Pods-foodsquare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foodsquare.release.xcconfig"; path = "Pods/Target Support Files/Pods-foodsquare/Pods-foodsquare.release.xcconfig"; sourceTree = "<group>"; };
-		81285E4F201A8A990056FF01 /* SecretKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretKeys.swift; sourceTree = "<group>"; };
 		81285E51201A8B6E0056FF01 /* FileManagerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerHelper.swift; sourceTree = "<group>"; };
+		81CA905C201A8EA90094A196 /* SecretKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretKeys.swift; sourceTree = "<group>"; };
 		81ED30AC2017F44A00A0A7EC /* foodsquare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = foodsquare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81ED30AF2017F44A00A0A7EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81ED30B62017F44A00A0A7EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -229,7 +229,7 @@
 		81FD7D00201946D50052402A /* DataToExclude */ = {
 			isa = PBXGroup;
 			children = (
-				81285E4F201A8A990056FF01 /* SecretKeys.swift */,
+				81CA905C201A8EA90094A196 /* SecretKeys.swift */,
 			);
 			path = DataToExclude;
 			sourceTree = "<group>";
@@ -314,12 +314,14 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/TableFlip/TableFlip.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TableFlip.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -377,11 +379,12 @@
 				81ED30F42017FB5B00A0A7EC /* VenueDetailedViewController.swift in Sources */,
 				81ED30D02017F75000A0A7EC /* UserPreference.swift in Sources */,
 				81ED30D62017F91700A0A7EC /* Photo.swift in Sources */,
+				81CA905D201A8EA90094A196 /* SecretKeys.swift in Sources */,
 				81ED30E62017F9E600A0A7EC /* SearchView.swift in Sources */,
 				81ED30C82017F6D400A0A7EC /* FoursquareAPISettings.swift in Sources */,
 				81ED30E22017F9C600A0A7EC /* CreateCollectionView.swift in Sources */,
 				81ED30F02017FA5C00A0A7EC /* ResultsViewController.swift in Sources */,
-				81DDC51E20196A98000A0D33 /* (null) in Sources */,
+				81DDC51E20196A98000A0D33 /* BuildFile in Sources */,
 				81ED30EC2017FA4200A0A7EC /* UserFavoritesViewController.swift in Sources */,
 				81ED30CE2017F73500A0A7EC /* PhotoAPIClient.swift in Sources */,
 				87C9AE5F201821750029B6D9 /* UserFavoritesCustomCollectionViewCell.swift in Sources */,
@@ -396,7 +399,6 @@
 				81ED30EE2017FA5200A0A7EC /* SaveToFavoritesViewController.swift in Sources */,
 				81ED30E42017F9DB00A0A7EC /* UserFavoritesView.swift in Sources */,
 				81ED30F22017FB3C00A0A7EC /* CreateCollectionViewController.swift in Sources */,
-				81285E50201A8A990056FF01 /* SecretKeys.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
