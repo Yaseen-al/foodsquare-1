@@ -230,6 +230,9 @@ extension SearchViewController: LocationDelegate{
     
     func userAllowedLocation(with location: CLLocation) {
         configureMapRegion(from: location)
+        LocationService.manager.getCityNameFromCLLocation(inputCLLocation: location) { (name) in
+            self.searchView.locationSearchBar.placeholder = name
+        }
         self.searchView.mapView.showsUserLocation = true
     }
 }
