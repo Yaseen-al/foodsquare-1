@@ -20,6 +20,7 @@ class VenueDetailView: UIView {
         button.setTitleColor(UIColor.gray, for: .selected)
         button.setTitle("Navigate", for: .normal)
         button.layer.shadowOpacity = 0.10
+        button.layer.shadowOffset = CGSize(width: 2, height: 2)
         button.layer.cornerRadius = 10
         button.backgroundColor = UIColor(displayP3Red: 66/255, green: 244/255, blue: 107/255, alpha: 1 )
         return button
