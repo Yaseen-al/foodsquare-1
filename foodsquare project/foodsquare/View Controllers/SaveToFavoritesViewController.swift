@@ -7,16 +7,19 @@
 //
 
 import UIKit
+import Disk
 
 class SaveToFavoritesViewController: UIViewController {
     var favoriteCollections:[Collection]!
     var preCreatedCollection: Collection!
     var venue: Venue!
+    var imageToSave: UIImage!
     private let collectionImagesInAssets = ["salmon dish", "burger Image"]
-    init(venue: Venue, precreatedCollection: Collection) {
+    init(venue: Venue, precreatedCollection: Collection, image: UIImage) {
         super.init(nibName: nil, bundle: nil)
         self.preCreatedCollection = precreatedCollection
         self.venue = venue
+        self.imageToSave = image
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -26,13 +29,27 @@ class SaveToFavoritesViewController: UIViewController {
     //collectionViewCell cell spacing
     let cellSpacing: CGFloat = 10
     
+    
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        self.saveToFavoriteView.newCollectionTitleTextField.endEditing(true)
+        self.saveToFavoriteView.tipTextView.endEditing(true)
+       
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tap)
         //configuring the navigation bar
         setupsaveToFavoriteView()
         configureNavBar()
+        //textFieldDelegate
         self.saveToFavoriteView.newCollectionTitleTextField.delegate = self
+        //textViewDelegate
+        self.saveToFavoriteView.tipTextView.delegate = self
         FileManagerHelper.manager.loadCollections()
         self.favoriteCollections = FileManagerHelper.manager.getAllCollections()
         
@@ -65,11 +82,18 @@ class SaveToFavoritesViewController: UIViewController {
         }
         preCreatedCollection.venues = [venue]
         
+        do{
+            guard let image = imageToSave else{return}
+            try Disk.save(image, to: .documents, as: "\(preCreatedCollection.imageName).png")
+        }catch{
+            print(error)
+        }
         FileManagerHelper.manager.addNew(newCollection: self.preCreatedCollection)
         print("DEV: create collection is pressed")
         let alert = UIAlertController(title: "You have a new collection now, hit the road with some venue search", message: "", preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "Ok", style: .default, handler: { (handler) in
             //TODO : go back to the previos viewcontroller
+             self.dismiss(animated: true, completion: nil)
         })
         alert.addAction(alertAction)
         self.present(alert, animated: true, completion: nil)
@@ -82,26 +106,28 @@ class SaveToFavoritesViewController: UIViewController {
             constraint.edges.equalTo(self.view.safeAreaLayoutGuide)
         }
     }
-    
-    
 }
 // Mark: CollectionView DataSource Extension
 extension SaveToFavoritesViewController:  UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.favoriteCollections.count
     }
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "customCell", for: indexPath) as! SaveToFavoritesCustomCollectionViewCell
         let collectionSetup = favoriteCollections[indexPath.row]
         cell.collectionLabel.text = collectionSetup.title
-        cell.collectionImage.image = UIImage(named: collectionSetup.imageName)
+        do{
+        let retrievedImage = try Disk.retrieve("\(collectionSetup.imageName).png", from: .documents, as: UIImage.self)
+            cell.collectionImage.image = retrievedImage
+        }catch{
+            print(error)
+        }
+        
         return cell
     }
-    
-    
 }
+
 // Mark: CollectionView Delegates Extension
 extension SaveToFavoritesViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -111,6 +137,7 @@ extension SaveToFavoritesViewController: UICollectionViewDelegate{
         case .alreadyExists:
             let alert = UIAlertController(title: "Venue already exist in your collection", message: "", preferredStyle: .alert)
             let alertAction = UIAlertAction(title: "Ok", style: .default, handler: { (handler) in
+                             self.dismiss(animated: true, completion: nil)
             })
             alert.addAction(alertAction)
             self.present(alert, animated: true, completion: nil)
@@ -118,9 +145,11 @@ extension SaveToFavoritesViewController: UICollectionViewDelegate{
         case .addedSuccessfully:
             let alert = UIAlertController(title: "Succesfully Added your item to your collection", message: "", preferredStyle: .alert)
             let alertAction = UIAlertAction(title: "Ok", style: .default, handler: { (handler) in
+                             self.dismiss(animated: true, completion: nil)
             })
             alert.addAction(alertAction)
             self.present(alert, animated: true, completion: nil)
+
         }
         
     }
@@ -147,4 +176,20 @@ extension SaveToFavoritesViewController: UITextFieldDelegate{
         textField.resignFirstResponder()
     }
 }
+//MARK: - textViewDelegate
+extension SaveToFavoritesViewController: UITextViewDelegate{
+    func textViewDidEndEditing(_ textView: UITextView) {
+        guard let text = textView.text else{
+            return
+        }
+        guard var tips = self.venue.tips else{
+            self.venue.tips = [text]
+            return
+        }
+        tips.append(text)
+        self.venue.tips = tips
+    }
+}
+
+
 

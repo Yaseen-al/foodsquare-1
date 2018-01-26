@@ -88,6 +88,14 @@ class SearchViewController: UIViewController {
         let region = MKCoordinateRegionMake(inputCLLocation.coordinate, span)
         self.searchView.mapView.setRegion(region, animated: true)
     }
+    
+    // centers in on venue after dismissing detail vc
+    func recenterMapRegion(from inputCLLocation: CLLocation){
+        let span = MKCoordinateSpanMake(0.009, 0.009)
+        let region = MKCoordinateRegionMake(inputCLLocation.coordinate, span)
+        self.searchView.mapView.setRegion(region, animated: true)
+    }
+    
     //MARK: - Configure the nav Bar
     func configureNavBar(){
         navigationItem.largeTitleDisplayMode = .never
@@ -156,9 +164,9 @@ extension SearchViewController: UICollectionViewDelegate{
             return
         }
         let venueSetup = venues[indexPath.row]
-        let detailedController = VenueDetailedViewController(venue: venueSetup)
-        self.navigationController?.pushViewController(detailedController, animated: true)
-        
+
+        recenterMapRegion(from: CLLocation(latitude: venueSetup.location.lat, longitude: venueSetup.location.lng))
+
     }
     
 }

@@ -8,5 +8,6 @@ target 'foodsquare' do
     pod 'Alamofire', '~> 4.5'
       pod 'Kingfisher', '~> 4.6'
       pod 'TableFlip'
+      pod 'Disk', '~> 0.3.3'
 end
 
