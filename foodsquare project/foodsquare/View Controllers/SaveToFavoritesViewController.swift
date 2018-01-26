@@ -64,6 +64,7 @@ class SaveToFavoritesViewController: UIViewController {
         let cancelButton = UIBarButtonItem(image: #imageLiteral(resourceName: "dismissButtonIcon"), style: .done, target: self, action: #selector(cancelButtonAction))
         self.navigationItem.rightBarButtonItem = createButton
         self.navigationItem.leftBarButtonItem = cancelButton
+          navigationController?.navigationBar.barTintColor = foodsquareColor.mainColor
         
         //collectionViewDelegate
         self.saveToFavoriteView.collectionView.delegate = self

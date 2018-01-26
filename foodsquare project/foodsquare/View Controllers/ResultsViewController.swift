@@ -50,6 +50,7 @@ class ResultsViewController: UIViewController {
     private func configureNavBar() {
         navigationItem.title = "Results List"
         navigationController?.navigationBar.prefersLargeTitles = true
+      
         
     }
     

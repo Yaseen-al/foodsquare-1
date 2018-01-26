@@ -67,6 +67,7 @@ class UserFavoritesViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         let refreshButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(addNewCollectionButtonPressed))
         navigationItem.rightBarButtonItem = refreshButton
+          navigationController?.navigationBar.barTintColor = foodsquareColor.mainColor
     }
     
     // Bar Button Segue

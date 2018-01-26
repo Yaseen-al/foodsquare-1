@@ -28,7 +28,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Initiate a navigationController for the searchViewController
         let searchNavigationController = UINavigationController(rootViewController: searchViewController)
-        
         // Initiate a UserFavoritesNavigationController
         let userFavorites = UserFavoritesViewController()
         userFavorites.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
