@@ -13,7 +13,11 @@ struct VenueAFireAPIClient {
     private init(){}
     static let manager = VenueAFireAPIClient()
     func getVenues(searchTerm: String, location:CLLocation, completionHandler: @escaping ([Venue])->Void, errorHandler: @escaping (Error)->Void) {
-        let urlStr = "\(FoursquareAPISettings.baseSearchURL)ll=\(location.coordinate.latitude),\(location.coordinate.longitude)&query=\(searchTerm)&client_id=\(FoursquareAPISettings.clientID)&client_secret=\(FoursquareAPISettings.clientSecret)&v=20180117&limit=15"
+        let serchTermSerialized = searchTerm.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        guard let safeSearchSerialized = serchTermSerialized else{
+            return
+        }
+        let urlStr = "\(FoursquareAPISettings.baseSearchURL)ll=\(location.coordinate.latitude),\(location.coordinate.longitude)&query=\(safeSearchSerialized))&client_id=\(FoursquareAPISettings.clientID)&client_secret=\(FoursquareAPISettings.clientSecret)&v=20180117&limit=15"
         
         Alamofire.request(urlStr).response(queue: DispatchQueue.main) { (response) in
             if let error = response.error{
