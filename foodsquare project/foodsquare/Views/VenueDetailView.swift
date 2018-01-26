@@ -25,15 +25,18 @@ class VenueDetailView: UIView {
         button.backgroundColor = UIColor(displayP3Red: 66/255, green: 244/255, blue: 107/255, alpha: 1 )
         return button
     }()
-    lazy var venueTypTitle: UILabel = {
+    lazy var venueCategoryTitle: UILabel = {
         let label = UILabel()
         label.numberOfLines = 2
+        label.textColor =  .gray
         label.text = "Sushi Resturant"
         label.backgroundColor = UIColor(displayP3Red: 238/255, green: 242/255, blue: 245/255, alpha: 1 )
         return label
     }()
     lazy var tipTextView: UITextView = {
         let textView = UITextView()
+        textView.font = UIFont.systemFont(ofSize: 15)
+        textView.isUserInteractionEnabled = false
         textView.text = "Tips are great for the community"
         textView.backgroundColor = UIColor(displayP3Red: 238/255, green: 242/255, blue: 245/255, alpha: 1 )
         return textView
@@ -70,12 +73,12 @@ class VenueDetailView: UIView {
         }
     }
     func setupVenueTypeTitle(){
-        addSubview(venueTypTitle)
-        venueTypTitle.snp.makeConstraints { (constrain) in
-            constrain.top.equalTo(venueImageView.snp.bottom)
-            constrain.centerX.equalTo(snp.centerX)
-            constrain.width.equalTo(snp.width).multipliedBy(0.98)
-            constrain.height.equalTo(snp.height).multipliedBy(0.05)
+        addSubview(venueCategoryTitle)
+        venueCategoryTitle.snp.makeConstraints { (constraint) in
+            constraint.top.equalTo(venueImageView.snp.bottom)
+            constraint.centerX.equalTo(snp.centerX)
+            constraint.width.equalTo(snp.width).multipliedBy(0.98)
+            constraint.height.equalTo(snp.height).multipliedBy(0.05)
         }
     }
     func setupTipTextView() {
@@ -88,18 +91,18 @@ class VenueDetailView: UIView {
     }
     func setupAddressLabel(){
         addSubview(addressLabel)
-        addressLabel.snp.makeConstraints { (constaint) in
-            constaint.top.equalTo(venueTypTitle.snp.bottom).offset(5)
-            constaint.centerX.equalTo(snp.centerX)
-            constaint.width.equalTo(snp.width).multipliedBy(0.98)
+        addressLabel.snp.makeConstraints { (constraint) in
+            constraint.top.equalTo(venueCategoryTitle.snp.bottom).offset(5)
+            constraint.centerX.equalTo(snp.centerX)
+            constraint.width.equalTo(snp.width).multipliedBy(0.98)
         }
     }
     func setupAddressButton() {
         addSubview(addressButton)
-        addressButton.snp.makeConstraints { (constaint) in
-            constaint.top.equalTo(tipTextView.snp.bottom).offset(5)
-            constaint.centerX.equalTo(snp.centerX)
-            constaint.width.equalTo(snp.width).multipliedBy(0.20)
+        addressButton.snp.makeConstraints { (constraint) in
+            constraint.top.equalTo(tipTextView.snp.bottom).offset(5)
+            constraint.centerX.equalTo(snp.centerX)
+            constraint.bottom.equalTo(snp.bottom).offset(-5)
         }
     }
 }
