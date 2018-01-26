@@ -87,7 +87,6 @@ class CreateCollectionView: UIView {
             make.trailing.equalTo(containerView.snp.trailing).offset(-10)
         }
     }
-    
 }
 
 
